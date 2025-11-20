@@ -2,13 +2,6 @@
 @import "tailwindcss";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -19,11 +12,34 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-    color-scheme: var(--color-scheme);
 @theme {
     --font-code: "IBM Plex Mono", monospace;
     --font-sans: "Lato", "Inter Tight", sans-serif;
+    --animate-insert-text: blinking-cursor 0.75s step-end infinite, insert-text 5s steps(0) infinite;
+    @keyframes blinking-cursor {
+        from,
+        to {
+            border-right: 1ex solid;
+        }
+        50% {
+            border: none;
+        }
+    }
+    @keyframes insert-text {
+        from,
+        to {
+            width: 0;
+        }
+        20% {
+            width: 0;
+        }
+        45% {
+            width: 100%;
+        }
+        80% {
+            width: 100%;
+        }
+    }
 }
 
 body {
