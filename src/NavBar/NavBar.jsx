@@ -9,7 +9,7 @@ function NavBar(props) {
       className="flex flex-row justify-center position-fixed w-full bg-black"
       id="navbar"
     >
-      <div className="flex flex-row justify-center w-full text-white my-3 md:my-4 2xl:my-5 font-geo text-sm md:text-lg xl:text-2xl">
+      <div className="flex flex-row justify-center w-full text-white my-3 md:my-4 2xl:my-5 font-sans text-sm md:text-lg xl:text-2xl">
         {sectionRefs?.map((ref) => (
           <span className="mx-1.5">
             <a
