@@ -41,11 +41,9 @@ function AboutPage({ id = "About" }) {
               </h5>
             </span>
           </div>
-          <div>
-            <p className="text-xl">
-              Web Developer, like kittens and front-end dev
-              aeyrgeygrsuyeigesugfiyegriuwyrueirg wieuryiuyguygy
-            </p>
+          <div className="text-xl">
+            <p>SE SPbu Student</p>
+            <p>Love kittens, anime and front-end</p>
           </div>
           <div className="inline-flex flex-col gap-3 items-start mt-8 w-36">
             <a
