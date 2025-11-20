@@ -22,7 +22,7 @@ function AboutPage({ id = "About" }) {
       className="flex justify-start lg:justify-between lg:h-full my-3"
     >
       <div className="grid grid-cols-10 w-full mx-[5%] md:mx-[12%]">
-        <div className="flex flex-col flex-wrap col-span-10 lg:col-span-6 justify-center md:content-center md:mb-14 font-sans">
+        <div className="flex flex-col flex-wrap col-span-10 lg:col-span-6 justify-center md:mb-14 font-sans">
           <div className="block lg:hidden col-span-2 h-[50px] w-[50px] my-[1em] border-[1px] border-solid border-pink-400 rounded-full bg-[url('/avatar_circle.png')] bg-center bg-cover "></div>
           <div className="lg:col-span-10 text-2xl lg:text-3xl xl:text-4xl ml-[4%] lg:ml-0 mt-2">
             <div className="block m-0">
