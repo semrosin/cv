@@ -14,7 +14,7 @@ function NavBar(props) {
           <span className="mx-1.5">
             <a
               href={ref.sectionRef}
-              className="border-b border-solid border-pink-400 font-light hover:border-b-2 hover:font-normal transition-all duration-100 ease-in-out"
+              className="border-b border-solid border-pink-400 font-normal hover:border-b-2 hover:font-bold transition-all duration-100 ease-in-out"
             >
               {ref.sectionName}
             </a>
