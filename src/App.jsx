@@ -1,4 +1,4 @@
-import NavBar from "./NavBar/NavBar";
+import NavBar from "./AboutPage/NavBar";
 import AboutPage from "./AboutPage/AboutPage";
 
 function App() {
