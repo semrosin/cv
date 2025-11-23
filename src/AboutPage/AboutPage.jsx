@@ -23,7 +23,13 @@ function AboutPage({ id = "About" }) {
     >
       <div className="grid grid-cols-10 mx-[5%] md:mx-[12%]">
         <div className="flex flex-col col-span-10 md:col-span-6 justify-start font-sans">
-          <div className="block md:hidden col-span-2 h-[50px] w-[50px] my-[1em] border-[1px] border-solid border-pink-400 rounded-full bg-[url('/avatar_circle.png')] bg-center bg-cover "></div>
+          <img
+            src="/avatar_circle.png"
+            alt="avatar"
+            width="50px"
+            height="50px"
+            className="block md:hidden col-span-2 my-[1em] border-[1px] border-solid border-pink-400 rounded-full"
+          />
           <div className="md:col-span-6 text-2xl lg:text-3xl xl:text-5xl ml-[4%] md:ml-0 mt-2">
             <div className="block m-0">
               <h5>Hi! I'm Semyon Rosin</h5>
@@ -39,19 +45,18 @@ function AboutPage({ id = "About" }) {
               </h5>
             </span>
           </div>
-          <div className="text-xl my-2">
+          <div className="text-2xl my-2">
             <p>SE SPbU Student</p>
             <p>Love kittens, anime and front-end</p>
           </div>
-          <div className="inline-flex flex-col gap-3 items-start my-4 w-36">
+          <div className="inline-flex flex-col gap-3 items-start mt-6 w-50">
             <a
               href="/CV.pdf"
               download="CV_Rosin_Semyon.pdf"
-              className="inline-flex items-center w-full h-10 justify-center align-middle rounded-sm border-[1px] border-pink-400 hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 transition-shadow duration-300"
+              className="inline-flex items-center w-full h-12 justify-center align-middle rounded-sm border-[2px] border-pink-400 text-xl hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 transition-shadow duration-300"
             >
               Download CV
             </a>
-            <SocialMedia mediaUrls={mediaUrls} className="w-full" />
           </div>
         </div>
         <div className="col-span-4 hidden md:flex flex-row items-center justify-center">

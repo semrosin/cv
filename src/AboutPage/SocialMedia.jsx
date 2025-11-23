@@ -23,9 +23,9 @@ export default function SocialMedia({
         <a
           href={mediaUrls[key]}
           target="_blank"
-          className="group inline-flex items-center gap-2 px-3 py-2 ring-1 ring-pink-400 rounded-full bg-transparent hover:bg-pink-400 text-white font-medium font-sans text-sm h-9"
+          className="group inline-flex items-center gap-2 px-3 py-2 ring-2 ring-pink-400 rounded-full bg-transparent hover:bg-pink-400 text-white font-medium font-sans text-md h-11"
         >
-          <svg className="w-4 h-4 flex-none" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 flex-none" viewBox="0 0 24 24">
             <path fill="currentColor" d={images[key]} />
           </svg>
           <span className="hidden group-hover:inline-block">{key}</span>
