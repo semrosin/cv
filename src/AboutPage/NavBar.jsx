@@ -1,12 +1,12 @@
 function NavBar(props) {
   const sectionRefs = props.sections.map((sectionName) => ({
-      sectionRef: `#${sectionName}`,
-      sectionName: sectionName,
-    }));
+    sectionRef: `#${sectionName}`,
+    sectionName: sectionName,
+  }));
 
   return (
     <div className="flex flex-row position-fixed w-full bg-black" id="navbar">
-      <div className="flex flex-row justify-center w-full text-white my-3 md:my-4 2xl:my-5 font-sans text-sm md:text-lg xl:text-2xl">
+      <div className="flex flex-row justify-center w-full text-white my-3 md:my-4 2xl:my-5 font-sans text-md md:text-lg xl:text-2xl">
         {sectionRefs?.map((ref) => (
           <span className="mx-[1vw]">
             <a

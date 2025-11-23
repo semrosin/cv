@@ -1,0 +1,26 @@
+export const Skills = {
+  frontSkills: {
+    JavaScript: "/front/JavaScript.svg",
+    TypeScript: "/front/TypeScript.svg",
+    HTML: "/front/HTML5.svg",
+    CSS: "/front/CSS3.svg",
+    React: "/front/React.svg",
+    Tailwind: "/front/Tailwind.svg",
+    MaterialUI: "/front/MUI.svg",
+    Bun: "/front/Bun.svg",
+    NPM: "/front/NPM.svg",
+    Vite: "front/Vite.js.svg",
+  },
+  backSkills: {
+    Git: "/back/Git.svg",
+    GitHub: "/back/GitHub.png",
+    Linux: "/back/Linux.svg",
+    CSharp: "/back/CSharp.svg",
+    NetCore: "/back/NETCore.svg",
+    Kotlin: "/back/Kotlin.svg",
+    JetpackCompose: "/back/Compose.png",
+    JUnit5: "/back/JUnit.svg",
+    Gradle: "/back/Gradle.svg",
+    C: "/back/C.svg",
+  },
+};

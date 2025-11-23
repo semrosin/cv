@@ -19,9 +19,9 @@ function AboutPage({ id = "About" }) {
   return (
     <section
       id={id}
-      className="flex flex-nowrap flex-col justify-start w-full md:justify-center md:h-full my-3"
+      className="flex flex-nowrap flex-col justify-start w-full md:justify-center md:h-[100vh]"
     >
-      <div className="grid grid-cols-10 mx-[5%] md:mx-[12%]">
+      <div className="grid grid-cols-10 mx-[5%] lg:mx-[12%]">
         <div className="flex flex-col col-span-10 md:col-span-6 justify-start font-sans">
           <img
             src="/avatar_circle.png"
@@ -30,11 +30,11 @@ function AboutPage({ id = "About" }) {
             height="50px"
             className="block md:hidden col-span-2 my-[1em] border-[1px] border-solid border-pink-400 rounded-full"
           />
-          <div className="md:col-span-6 text-2xl lg:text-3xl xl:text-5xl ml-[4%] md:ml-0 mt-2">
+          <div className="md:col-span-6 text-2xl md:text-3xl xl:text-5xl ml-[4%] md:ml-0 mt-2">
             <div className="block m-0">
               <h5>Hi! I'm Semyon Rosin</h5>
             </div>
-            <span className="inline-flex align-middle my-2 font-code">
+            <span className="inline-flex align-middle my-[0.5vh] font-code">
               <h5 className="inline-flex flex-col justify-center whitespace-nowrap mt-0.5 mr-[0.5em] select-none font-light text-gray-500 text-base lg:text-xl xl:text-3xl">
                 $
               </h5>
@@ -45,15 +45,15 @@ function AboutPage({ id = "About" }) {
               </h5>
             </span>
           </div>
-          <div className="text-2xl my-2">
+          <div className="text-lg md:text-xl lg:text-2xl my-2">
             <p>SE SPbU Student</p>
             <p>Love kittens, anime and front-end</p>
           </div>
-          <div className="inline-flex flex-col gap-3 items-start mt-6 w-50">
+          <div className="inline-flex flex-col gap-3 items-start mt-6 w-40 md:w-50">
             <a
               href="/CV.pdf"
               download="CV_Rosin_Semyon.pdf"
-              className="inline-flex items-center w-full h-12 justify-center align-middle rounded-sm border-[2px] border-pink-400 text-xl hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 transition-shadow duration-300"
+              className="inline-flex items-center w-full h-12 justify-center align-middle rounded-md border-[2px] border-pink-400 text-md md:text-xl hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 transition-shadow duration-300"
             >
               Download CV
             </a>
