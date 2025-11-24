@@ -60,13 +60,11 @@ function AboutPage({ id = "About" }) {
           </div>
         </div>
         <div className="col-span-4 hidden md:flex flex-row items-center justify-center">
-          <div>
-            <a
-              href={mediaUrls.GitHub}
-              target="_blank"
-              className="flex aspect-square min-h-60 lg:min-h-75 bg-[url('/avatar_square.jpg')] bg-center bg-cover hover:-translate-x-1 hover:-translate-y-1 shadow-[0.5rem_0.5rem_0px_0px_var(--color-pink-400)] hover:shadow-[0.75rem_0.75rem_0px_0px_var(--color-pink-400)]"
-            />
-          </div>
+          <a
+            href={mediaUrls.GitHub}
+            target="_blank"
+            className="flex aspect-square min-h-60 lg:min-h-75 bg-[url('/avatar_square.jpg')] bg-center bg-cover hover:-translate-x-1 hover:-translate-y-1 shadow-[0.5rem_0.5rem_0px_0px_var(--color-pink-400)] hover:shadow-[0.75rem_0.75rem_0px_0px_var(--color-pink-400)]"
+          />
         </div>
       </div>
     </section>

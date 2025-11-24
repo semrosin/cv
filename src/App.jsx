@@ -6,7 +6,7 @@ function App() {
   const sections = ["About", "Works", "Contacts"];
 
   return (
-    <div className="min-h-full bg-[#0a0a0a]">
+    <div className="h-auto bg-[#0a0a0a]">
       <NavBar sections={sections} />
       <AboutPage />
       <WorksPage />
