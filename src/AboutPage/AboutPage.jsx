@@ -1,14 +1,25 @@
+import React from "react";
 import { MediaUrls } from "./MediaUrls.js";
+import Typed from "typed.js";
 
 function AboutPage({ id = "About" }) {
-  const insertText = (steps) => {
-    document.documentElement.style.setProperty(
-      "--animate-insert-text",
-      `blinking-cursor 0.75s step-end infinite, insert-text 5s steps(${steps}) infinite`
-    );
+  const el = React.useRef(null);
 
-    return "animate-insert-text";
-  };
+  React.useEffect(() => {
+    const typed = new Typed(el.current, {
+      strings: ["Vibe-", "Web Developer ^400"],
+      typeSpeed: 100,
+      cursorChar: "┃",
+      loop: true,
+      loopCount: Infinity,
+      backSpeed: 50,
+    });
+
+    return () => {
+      // Destroy Typed instance during cleanup to stop animation
+      typed.destroy();
+    };
+  }, []);
 
   return (
     <section
@@ -33,11 +44,10 @@ function AboutPage({ id = "About" }) {
               <h5 className="inline-flex flex-col justify-center whitespace-nowrap mt-0.5 mr-[0.5em] select-none font-light text-gray-500 text-base lg:text-xl xl:text-3xl">
                 $
               </h5>
-              <h5
-                className={`insert-text inline-block whitespace-nowrap text-pink-400 ${insertText(13)} overflow-hidden`}
-              >
-                Web Developer
-              </h5>
+              <span
+                ref={el}
+                className={`inline-block whitespace-nowrap font-code text-pink-400 bg-pink-400 bg-clip-text overflow-hidden`}
+              ></span>
             </span>
           </div>
           <div className="text-lg md:text-xl lg:text-2xl my-2">

@@ -17,8 +17,6 @@
 @theme {
   --font-code: "IBM Plex Mono", monospace;
   --font-sans: "Poppins", "Lato", "Inter Tight", sans-serif;
-  --animate-insert-text:
-    blinking-cursor 0.75s step-end infinite, insert-text 5s steps(0) infinite;
 }
 
 body {
@@ -42,31 +40,5 @@ body {
   }
   100% {
     transform: translateX(100%);
-  }
-}
-
-@keyframes blinking-cursor {
-  from,
-  to {
-    border-right: 1ex solid;
-  }
-  50% {
-    border: none;
-  }
-}
-
-@keyframes insert-text {
-  from,
-  to {
-    width: 0;
-  }
-  20% {
-    width: 0;
-  }
-  45% {
-    width: 100%;
-  }
-  80% {
-    width: 100%;
   }
 }
