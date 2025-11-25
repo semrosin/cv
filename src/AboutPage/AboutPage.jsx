@@ -30,9 +30,10 @@ function AboutPage({ id = "About" }) {
             height="50px"
             className="block md:hidden col-span-2 my-[1em] border-[1px] border-solid border-pink-400 rounded-full"
           />
-          <div className="md:col-span-6 text-2xl md:text-3xl xl:text-5xl ml-[4%] md:ml-0 mt-2">
+          <div className="md:col-span-6 font-bold text-2xl md:text-3xl xl:text-5xl ml-[4%] md:ml-0 mt-2">
             <div className="block m-0">
-              <h5>Hi! I'm Semyon Rosin</h5>
+              <pre className="inline-flex">Hi! I'm </pre>
+              <pre className="inline-flex text-pink-400">Semyon Rosin</pre>
             </div>
             <span className="inline-flex align-middle my-[0.5vh] font-code">
               <h5 className="inline-flex flex-col justify-center whitespace-nowrap mt-0.5 mr-[0.5em] select-none font-light text-gray-500 text-base lg:text-xl xl:text-3xl">
@@ -53,7 +54,7 @@ function AboutPage({ id = "About" }) {
             <a
               href="/CV.pdf"
               download="CV_Rosin_Semyon.pdf"
-              className="inline-flex items-center w-full h-12 justify-center align-middle rounded-md border-[2px] border-pink-400 text-md md:text-xl hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 transition-shadow duration-300"
+              className="inline-flex items-center w-full h-12 justify-center align-middle rounded-md border-[2px] border-pink-400 text-md md:text-xl hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 transition-all duration-300"
             >
               Download CV
             </a>

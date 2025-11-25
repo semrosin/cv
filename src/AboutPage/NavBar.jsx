@@ -1,3 +1,5 @@
+import SocialMedia from "./SocialMedia";
+
 function NavBar(props) {
   const sectionRefs = props.sections.map((sectionName) => ({
     sectionRef: `#${sectionName}`,
@@ -6,18 +8,19 @@ function NavBar(props) {
 
   return (
     <div className="flex flex-row position-fixed w-full bg-black" id="Navbar">
-      <div className="flex flex-row justify-center w-full text-white my-3 md:my-4 2xl:my-5 font-sans text-md md:text-lg xl:text-2xl">
+      <ul className="flex flex-row justify-start w-full text-white my-3 md:my-4 2xl:my-5 font-sans text-sm md:text-lg xl:text-2xl">
         {sectionRefs.map((ref) => (
-          <span key={ref.sectionName} className="mx-[1vw]">
+          <li key={ref.sectionName} className="ml-3 md:ml-5">
             <a
               href={ref.sectionRef}
-              className="border-b border-solid border-pink-400 font-normal hover:border-b-2 hover:font-bold transition-all duration-100 ease-in-out"
+              className="font-bold hover:text-pink-400 transition-all duration-150 ease-in-out"
             >
               {ref.sectionName}
             </a>
-          </span>
+          </li>
         ))}
-      </div>
+      </ul>
+      <SocialMedia className="self-center mr-5" />
     </div>
   );
 }
