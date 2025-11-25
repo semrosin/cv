@@ -24,6 +24,10 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+.typed-cursor {
+  border-right: 1ex solid;
+  border-color: currentColor;
+}
 
 @keyframes scroll {
   0% {

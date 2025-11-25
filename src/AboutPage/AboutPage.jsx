@@ -9,7 +9,7 @@ function AboutPage({ id = "About" }) {
     const typed = new Typed(el.current, {
       strings: ["Vibe-", "Web Developer ^400"],
       typeSpeed: 100,
-      cursorChar: "┃",
+      cursorChar: "",
       loop: true,
       loopCount: Infinity,
       backSpeed: 50,
