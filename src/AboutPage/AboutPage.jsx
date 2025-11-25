@@ -1,12 +1,6 @@
-import SocialMedia from "./SocialMedia.jsx";
+import { MediaUrls } from "./MediaUrls.js";
 
 function AboutPage({ id = "About" }) {
-  const mediaUrls = {
-    GitHub: "https://github.com/semrosin",
-    Telegram: "https://t.me/too_selfish_4u",
-    GMail: "https://mail.google.com/mail/?view=cm&to=semen.rosin1@gmail.com",
-  };
-
   const insertText = (steps) => {
     document.documentElement.style.setProperty(
       "--animate-insert-text",
@@ -24,7 +18,7 @@ function AboutPage({ id = "About" }) {
       <div className="grid grid-cols-10 mx-[5%] lg:mx-[12%]">
         <div className="flex flex-col col-span-10 md:col-span-6 justify-start font-sans">
           <img
-            src="/avatar_circle.png"
+            src="img/avatar_circle.png"
             alt="avatar"
             width="50px"
             height="50px"
@@ -52,7 +46,7 @@ function AboutPage({ id = "About" }) {
           </div>
           <div className="inline-flex flex-col gap-3 items-start mt-6 w-40 md:w-50">
             <a
-              href="/CV.pdf"
+              href="/docs/CV.pdf"
               download="CV_Rosin_Semyon.pdf"
               className="inline-flex items-center w-full h-12 justify-center align-middle rounded-md border-[2px] border-pink-400 text-md md:text-xl hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 transition-all duration-300"
             >
@@ -62,9 +56,9 @@ function AboutPage({ id = "About" }) {
         </div>
         <div className="col-span-4 hidden md:flex flex-row items-center justify-center">
           <a
-            href={mediaUrls.GitHub}
+            href={MediaUrls.GitHub}
             target="_blank"
-            className="flex aspect-square min-h-60 lg:min-h-75 bg-[url('/avatar_square.jpg')] bg-center bg-cover hover:-translate-x-1 hover:-translate-y-1 shadow-[0.5rem_0.5rem_0px_0px_var(--color-pink-400)] hover:shadow-[0.75rem_0.75rem_0px_0px_var(--color-pink-400)]"
+            className="flex aspect-square min-h-60 lg:min-h-75 bg-[url('/img/avatar_square.jpg')] bg-center bg-cover hover:-translate-x-1 hover:-translate-y-1 shadow-[0.5rem_0.5rem_0px_0px_var(--color-pink-400)] hover:shadow-[0.75rem_0.75rem_0px_0px_var(--color-pink-400)]"
           />
         </div>
       </div>

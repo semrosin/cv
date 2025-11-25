@@ -1,3 +1,4 @@
+import { MediaUrls } from "./MediaUrls";
 import SocialMedia from "./SocialMedia";
 
 function NavBar(props) {
@@ -20,7 +21,7 @@ function NavBar(props) {
           </li>
         ))}
       </ul>
-      <SocialMedia className="self-center mr-5" />
+      <SocialMedia className="self-center mr-5" mediaUrls={MediaUrls} />
     </div>
   );
 }
