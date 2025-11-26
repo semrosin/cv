@@ -1,4 +1,4 @@
-import { MediaUrls } from "./MediaUrls";
+import { MediaUrls } from "../data/MediaUrls.js";
 import SocialMedia from "./SocialMedia";
 
 function NavBar(props) {

@@ -1,4 +1,4 @@
-import { frontSkills, backSkills } from "./Skills";
+import { frontSkills, backSkills } from "../data/Skills.js";
 
 export default function ScrollSkills({ className = "" }) {
   return (

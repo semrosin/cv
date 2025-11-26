@@ -1,6 +1,6 @@
 import ScrollSkills from "./ScrollSkills";
 import WorkCard from "./WorkCard";
-import { Works } from "./Works";
+import { Works } from "../data/Works.js";
 
 export default function WorksPage({ id = "Works" }) {
   return (

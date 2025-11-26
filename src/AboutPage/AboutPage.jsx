@@ -1,5 +1,5 @@
 import React from "react";
-import { MediaUrls } from "./MediaUrls.js";
+import { MediaUrls } from "../data/MediaUrls.js";
 import Typed from "typed.js";
 
 function AboutPage({ id = "About" }) {
@@ -41,12 +41,13 @@ function AboutPage({ id = "About" }) {
               <pre className="inline-flex text-pink-400">Semyon Rosin</pre>
             </div>
             <span className="inline-flex align-middle my-[0.5vh] font-code">
-              <h5 className="inline-flex flex-col justify-center whitespace-nowrap mt-0.5 mr-[0.5em] select-none font-light text-gray-500 text-base lg:text-xl xl:text-3xl">
+              <h5 className="inline-flex flex-col justify-center whitespace-nowrap mt-1 select-none font-light text-gray-500 text-base lg:text-xl xl:text-3xl">
                 $
               </h5>
+              <pre> </pre>
               <span
                 ref={el}
-                className={`inline-block whitespace-nowrap font-code text-pink-400 bg-pink-400 bg-clip-text overflow-hidden`}
+                className="inline-block whitespace-nowrap font-code text-pink-400 bg-pink-400 bg-clip-text overflow-hidden"
               ></span>
             </span>
           </div>
@@ -58,7 +59,7 @@ function AboutPage({ id = "About" }) {
             <a
               href="/docs/CV.pdf"
               download="CV_Rosin_Semyon.pdf"
-              className="inline-flex items-center w-full h-12 justify-center align-middle rounded-md border-[2px] border-pink-400 text-md md:text-xl hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 transition-all duration-300"
+              className="inline-flex items-center w-full h-12 justify-center align-middle rounded-md border-[2px] border-pink-400 text-md md:text-xl font-medium hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 transition-all duration-300"
             >
               Download CV
             </a>

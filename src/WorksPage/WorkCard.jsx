@@ -1,11 +1,11 @@
-import { Skills } from "./Skills";
+import { Skills } from "../data/Skills.js";
 
 export default function WorkCard({ work, className = "" }) {
   console.log(work);
   return (
     <a
       href={work.url}
-      className={`flex flex-col h-120 min-w-70 w-77 rounded-2xl bg-zinc-900 ${className} hover:shadow-[0_0_18px_var(--color-pink-400)] hover:scale-101 transition-all duration-300 overflow-hidden`}
+      className={`group flex flex-col h-120 min-w-70 w-77 rounded-2xl bg-zinc-900 ${className} hover:shadow-[0_0_18px_var(--color-pink-400)] hover:scale-101 transition-all duration-300 overflow-hidden`}
     >
       <div className="relative w-full overflow-hidden">
         <img
@@ -13,12 +13,12 @@ export default function WorkCard({ work, className = "" }) {
           alt={work.title}
           className="w-full object-cover h-60 max-h-60"
         />
-        {/* Gradient между картинкой и контентом; находится внутри карточки, поэтому будет масштабироваться вместе с ней */}
+        {/* Gradient between and image card */}
         <div className="absolute left-0 right-0 bottom-0 h-16 pointer-events-none bg-gradient-to-b from-transparent to-zinc-900" />
       </div>
 
       <div className="flex flex-col h-full mx-5">
-        <div className="flex justify-center min-h-30 text-xl font-sans font-medium mx-2 items-center text-center">
+        <div className="flex justify-center min-h-30 text-xl font-sans font-bold mx-2 items-center text-center">
           {work.title}
         </div>
         <hr className="border-none mx-7 h-[0.2px] bg-pink-400"></hr>
