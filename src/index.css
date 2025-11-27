@@ -7,11 +7,18 @@
   font-synthesis: none;
   color: white;
   text-rendering: optimizeLegibility;
-  scrollbar-color: #aa4e82 #0a0a0a;
+  scrollbar-color: #aa4e82 #000;
   scrollbar-gutter: both-edges;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+input:-webkit-autofill,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 @theme {

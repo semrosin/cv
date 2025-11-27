@@ -35,11 +35,8 @@ function AboutPage({ id = "About" }) {
             height="50px"
             className="block md:hidden col-span-2 my-[1em] border-[1px] border-solid border-pink-400 rounded-full"
           />
-          <div className="md:col-span-6 font-bold text-2xl md:text-3xl xl:text-5xl ml-[4%] md:ml-0 mt-2">
-            <div className="block m-0">
-              <pre className="inline-flex">Hi! I'm </pre>
-              <pre className="inline-flex text-pink-400">Semyon Rosin</pre>
-            </div>
+          <div className="md:col-span-6 font-bold text-3xl md:text-4xl xl:text-6xl ml-[4%] md:ml-0 mt-2">
+            <div className="block m-0 font-sans">Hi! I'm Semyon Rosin</div>
             <span className="inline-flex align-middle my-[0.5vh] font-code">
               <h5 className="inline-flex flex-col justify-center whitespace-nowrap mt-1 select-none font-light text-gray-500 text-base lg:text-xl xl:text-3xl">
                 $
@@ -47,7 +44,7 @@ function AboutPage({ id = "About" }) {
               <pre> </pre>
               <span
                 ref={el}
-                className="inline-block whitespace-nowrap font-code text-pink-400 bg-pink-400 bg-clip-text overflow-hidden"
+                className="inline-block whitespace-nowrap font-code font-medium text-pink-400 bg-pink-400 bg-clip-text overflow-hidden"
               ></span>
             </span>
           </div>

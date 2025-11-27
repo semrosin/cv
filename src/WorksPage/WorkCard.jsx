@@ -1,7 +1,6 @@
 import { Skills } from "../data/Skills.js";
 
 export default function WorkCard({ work, className = "" }) {
-  console.log(work);
   return (
     <a
       href={work.url}

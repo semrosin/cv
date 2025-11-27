@@ -1,6 +1,7 @@
 import NavBar from "./AboutPage/NavBar";
 import AboutPage from "./AboutPage/AboutPage";
 import WorksPage from "./WorksPage/WorksPage";
+import ContactsFooter from "./ContactsFooter/ContactsFooter";
 
 function App() {
   const sections = ["About", "Works", "Contacts"];
@@ -10,6 +11,7 @@ function App() {
       <NavBar sections={sections} />
       <AboutPage />
       <WorksPage />
+      <ContactsFooter />
     </div>
   );
 }
