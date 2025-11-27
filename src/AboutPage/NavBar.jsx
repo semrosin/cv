@@ -21,7 +21,10 @@ function NavBar(props) {
           </li>
         ))}
       </ul>
-      <SocialMedia className="self-center mr-5" mediaUrls={MediaUrls} />
+      <SocialMedia
+        className="self-center mr-2 items-center"
+        mediaUrls={MediaUrls}
+      />
     </div>
   );
 }

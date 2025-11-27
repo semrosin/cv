@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MailService } from "./MailService";
 import SocialMedia from "../AboutPage/SocialMedia";
+import { MediaUrls } from "../data/MediaUrls";
 
 export default function ContactsFooter({ id = "Contacts" }) {
   const [email, setEmail] = useState("");
@@ -18,12 +19,12 @@ export default function ContactsFooter({ id = "Contacts" }) {
   return (
     <section
       id={id}
-      className="flex flex-col content-center h-[100vh] md:h-[80vh] bg-black shadow-[0_-12px_100px_28px_black]"
+      className="flex flex-col content-center min-h-[100vh] md:min-h-[80vh] bg-black shadow-[0_-12px_100px_28px_black]"
     >
-      <div className="flex justify-center mt-15 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
+      <div className="flex justify-center h-70 mt-15 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
         I’d be glad to get your feedback.
       </div>
-      <div className="flex flex-col mx-[8vw] h-full lg:flex-row lg:items-end justify-end lg:justify-start gap-25">
+      <div className="flex flex-col mx-[8vw] h-full lg:flex-row lg:items-start justify-end lg:justify-start lg:gap-25">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col lg:w-[calc(50%-2.5rem)] text-white mb-10"
@@ -88,6 +89,18 @@ export default function ContactsFooter({ id = "Contacts" }) {
             </button>
           </div>
         </form>
+        <div className="flex flex-col mb-3">
+          <div className="flex flex-col items-center">
+            <h5 className="mb-6 ml-2 text-2xl font-sans font-bold text-pink-400">
+              Social Media
+            </h5>
+            <SocialMedia
+              mediaUrls={MediaUrls}
+              showName={true}
+              className="flex-col"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

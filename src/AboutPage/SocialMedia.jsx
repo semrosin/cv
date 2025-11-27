@@ -4,7 +4,7 @@ export default function SocialMedia({
     Telegram: "https://t.me/",
     GMail: "https://mail.google.com/",
   },
-  discloseOnHover = false,
+  showName = false,
   className = "",
 }) {
   const images = {
@@ -23,19 +23,19 @@ export default function SocialMedia({
           key={key}
           href={mediaUrls[key]}
           target="_blank"
-          className={`group inline-flex items-center gap-2 py-2 ${discloseOnHover && "ring-2 ring-pink-400 rounded-full"} bg-transparent ${discloseOnHover && "hover:bg-pink-400"} text-white font-medium font-sans text-md h-11`}
+          className={`group items-center inline-flex py-2 ${showName && "ring-2 hover:ring-pink-400 rounded-full"} bg-transparent ${showName && "hover:bg-pink-400"} text-white font-medium font-sans text-md h-6 md:h-10 ${showName ? "w-full pl-4" : "w-6 md:w-10"}`}
         >
           <svg
-            className={`w-4 h-4 md:w-6 md:h-6 flex-none hover:${discloseOnHover ? "text-white" : "text-pink-400"} transition-all duration-300`}
+            className={`w-4 h-4 md:w-6 md:h-6 flex-none hover:${showName ? "text-white" : "text-pink-400"} transition-all duration-300`}
             viewBox="0 0 24 24"
           >
             <path fill="currentColor" d={images[key]} />
           </svg>
-          <span
-            className={`hidden group-hover:${discloseOnHover && "inline-block"}`}
-          >
-            {key}
-          </span>
+          {showName && (
+            <span className="inline-block pr-4 pl-3 w-full text-center">
+              {key}
+            </span>
+          )}
         </a>
       ))}
     </div>
