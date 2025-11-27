@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function SocialMedia({
   mediaUrls = {
     GitHub: "https://github.com/",
@@ -28,7 +26,7 @@ export default function SocialMedia({
           className={`group inline-flex items-center gap-2 py-2 ${discloseOnHover && "ring-2 ring-pink-400 rounded-full"} bg-transparent ${discloseOnHover && "hover:bg-pink-400"} text-white font-medium font-sans text-md h-11`}
         >
           <svg
-            className="w-4 h-4 md:w-6 md:h-6 flex-none hover:text-pink-400 transition-all duration-300"
+            className={`w-4 h-4 md:w-6 md:h-6 flex-none hover:${discloseOnHover ? "text-white" : "text-pink-400"} transition-all duration-300`}
             viewBox="0 0 24 24"
           >
             <path fill="currentColor" d={images[key]} />
