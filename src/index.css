@@ -24,6 +24,7 @@ select:-webkit-autofill:focus {
 @theme {
   --font-code: "IBM Plex Mono", monospace;
   --font-sans: "Poppins", "Lato", "Inter Tight", sans-serif;
+  --breakpoint-ml: 88rem;
 }
 
 body {

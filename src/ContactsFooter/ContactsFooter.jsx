@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { MailService } from "./MailService";
 import SocialMedia from "../AboutPage/SocialMedia";
 import { MediaUrls } from "../data/MediaUrls";
@@ -21,16 +21,24 @@ export default function ContactsFooter({ id = "Contacts" }) {
     setComment("");
   }
 
-  const cardAnimation = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      y: 0,
-      opacity: 1,
-      transition: { delay: custom * 0.3 },
-    }),
+  const [isPlaying, setIsPlaying] = useState(false);
+  const timerRef = useRef(null);
+  const gifDuration = 3000;
+
+  const handleClick = () => {
+    if (!isPlaying) {
+      setIsPlaying(true);
+
+      // Останавливаем предыдущий таймер
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+
+      // Через указанное время возвращаем статичную картинку
+      timerRef.current = setTimeout(() => {
+        setIsPlaying(false);
+      }, gifDuration);
+    }
   };
 
   return (
@@ -41,7 +49,7 @@ export default function ContactsFooter({ id = "Contacts" }) {
       <div className="flex justify-center h-70 mt-15 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
         {title}
       </div>
-      <div className="flex flex-col mx-[8vw] h-full lg:flex-row lg:items-start justify-end lg:justify-start lg:gap-25">
+      <div className="flex flex-col mx-[8vw] h-full md:flex-row md:items-start justify-between md:gap-25">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col lg:w-[calc(50%-2.5rem)] text-white mb-10"
@@ -70,7 +78,7 @@ export default function ContactsFooter({ id = "Contacts" }) {
               htmlFor="company"
               className="absolute whitespace-nowrap -mt-3 bg-black px-1 text-sm/6 mx-2.5 font-medium text-white"
             >
-              Where are you from? (e.g., company)
+              Who are you from?
             </label>
             <input
               id="company"
@@ -108,7 +116,7 @@ export default function ContactsFooter({ id = "Contacts" }) {
         </form>
         <div className="flex flex-col mb-3">
           <div className="flex flex-col items-center">
-            <h5 className="mb-6 text-2xl font-sans font-bold text-pink-400">
+            <h5 className="mb-6 text-2xl font-sans font-bold text-pink-400 md:whitespace-nowrap">
               Social Media
             </h5>
             <SocialMedia
@@ -118,7 +126,14 @@ export default function ContactsFooter({ id = "Contacts" }) {
             />
           </div>
         </div>
-        <img src="/img/kittenBack.png" alt="pixel kitten's back"></img>
+        <div className="flex md:hidden ml:flex lg:hidden justify-center max-w-full">
+          <img
+            src={isPlaying ? "/img/spinningKitten.gif" : "/img/kittenBack.png"}
+            onClick={handleClick}
+            alt="pixel kitten's back"
+            className="flex aspect-ratio min-w-[200px] max-h-[400px] max-w-[400px]"
+          />
+        </div>
       </div>
     </motion.section>
   );
