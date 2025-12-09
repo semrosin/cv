@@ -1,0 +1,6 @@
+{
+    "sindleQuote": true,
+    "trailingComma": "all",
+    "endOfLine": "lf",
+    "tabWidth": 2
+}
