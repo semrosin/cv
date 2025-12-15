@@ -1,12 +1,15 @@
 import { Skills } from "../data/Skills.js";
 import { forwardRef } from "react";
+import { useNavigate } from 'react-router-dom';
 import { motion } from "motion/react";
 
 export const WorkCard = forwardRef(({ work, className = "" }, ref) => {
+  const navigate = useNavigate();
   return (
     <a
       ref={ref}
       href={work.url}
+      target="_blank"
       className={`group flex flex-col h-120 min-w-70 w-77 rounded-2xl bg-zinc-900 ${className} hover:shadow-[0_0_18px_var(--color-pink-400)] hover:scale-101 transition-all duration-300 overflow-hidden`}
     >
       <div className="relative w-full overflow-hidden">
@@ -15,7 +18,6 @@ export const WorkCard = forwardRef(({ work, className = "" }, ref) => {
           alt={work.title}
           className="w-full object-cover h-60 max-h-60"
         />
-        {/* Gradient between and image card */}
         <div className="absolute left-0 right-0 bottom-0 h-16 pointer-events-none bg-gradient-to-b from-transparent to-zinc-900" />
       </div>
 

@@ -1,43 +1,52 @@
+import { MediaUrls } from "../data/MediaUrls";
+import { FaGithub, FaTelegramPlane } from 'react-icons/fa';
+import { SiGmail } from "react-icons/si";
+
 export default function SocialMedia({
-  mediaUrls = {
-    GitHub: "https://github.com/",
-    Telegram: "https://t.me/",
-    GMail: "https://mail.google.com/",
-  },
   showName = false,
   className = "",
 }) {
-  const images = {
-    GitHub:
-      "M12,2.2467A10.00042,10.00042,0,0,0,8.83752,21.73419c.5.08752.6875-.21247.6875-.475,0-.23749-.01251-1.025-.01251-1.86249C7,19.85919,6.35,18.78423,6.15,18.22173A3.636,3.636,0,0,0,5.125,16.8092c-.35-.1875-.85-.65-.01251-.66248A2.00117,2.00117,0,0,1,6.65,17.17169a2.13742,2.13742,0,0,0,2.91248.825A2.10376,2.10376,0,0,1,10.2,16.65923c-2.225-.25-4.55-1.11254-4.55-4.9375a3.89187,3.89187,0,0,1,1.025-2.6875,3.59373,3.59373,0,0,1,.1-2.65s.83747-.26251,2.75,1.025a9.42747,9.42747,0,0,1,5,0c1.91248-1.3,2.75-1.025,2.75-1.025a3.59323,3.59323,0,0,1,.1,2.65,3.869,3.869,0,0,1,1.025,2.6875c0,3.83747-2.33752,4.6875-4.5625,4.9375a2.36814,2.36814,0,0,1,.675,1.85c0,1.33752-.01251,2.41248-.01251,2.75,0,.26251.1875.575.6875.475A10.0053,10.0053,0,0,0,12,2.2467Z",
-    Telegram:
-      "M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12.3583 9.38244C11.3857 9.787 9.44177 10.6243 6.52657 11.8944C6.05318 12.0827 5.8052 12.2669 5.78263 12.4469C5.74448 12.7513 6.12559 12.8711 6.64455 13.0343C6.71515 13.0565 6.78829 13.0795 6.86327 13.1038C7.37385 13.2698 8.06068 13.464 8.41773 13.4717C8.74161 13.4787 9.1031 13.3452 9.50219 13.0711C12.226 11.2325 13.632 10.3032 13.7202 10.2831C13.7825 10.269 13.8688 10.2512 13.9273 10.3032C13.9858 10.3552 13.98 10.4536 13.9738 10.48C13.9361 10.641 12.4401 12.0318 11.6659 12.7515C11.4246 12.9759 11.2534 13.135 11.2184 13.1714C11.14 13.2528 11.0601 13.3298 10.9833 13.4038C10.509 13.8611 10.1532 14.204 11.003 14.764C11.4114 15.0331 11.7381 15.2556 12.0641 15.4776C12.4201 15.7201 12.7752 15.9619 13.2347 16.2631C13.3517 16.3398 13.4635 16.4195 13.5724 16.4971C13.9867 16.7925 14.3589 17.0579 14.8188 17.0155C15.086 16.991 15.362 16.7397 15.5022 15.9903C15.8335 14.2193 16.4847 10.382 16.6352 8.80081C16.6484 8.66228 16.6318 8.48498 16.6185 8.40715C16.6051 8.32932 16.5773 8.21842 16.4761 8.13633C16.3563 8.03911 16.1714 8.01861 16.0886 8.02C15.7125 8.0267 15.1354 8.22735 12.3583 9.38244Z",
-    GMail:
-      "M17,10.86l4-3.43V19H17Zm-10,0L3,7.43V19H7ZM17,5.59h0L12,9.88,7,5.59H7A2.42,2.42,0,0,0,3,7.43H3l4,3.43,5,4.28,5-4.28,4-3.43h0A2.42,2.42,0,0,0,17,5.59Z",
-  };
-
   return (
-    <div className={`inline-flex gap-2.5 justify-between ${className}`}>
-      {Object.keys(mediaUrls).map((key) => (
+    <div className={`inline-flex gap-2.5 md:gap-5 justify-between ${className}`}>
         <a
-          key={key}
-          href={mediaUrls[key]}
+          key={"GitHub"}
+          href={MediaUrls["GitHub"]}
           target="_blank"
-          className={`group items-center inline-flex py-2 ${showName ? "ring-2 hover:ring-pink-400 rounded-full" : ""} bg-transparent ${showName ? "hover:bg-pink-400" : ""} text-white font-medium font-sans text-md h-6 md:h-10 ${showName ? "w-full pl-4" : "w-6 md:w-10"}`}
+          className={`group items-center inline-flex py-1 ${showName ? "ring-2 hover:ring-pink-400 rounded-full" : ""} bg-transparent ${showName ? "hover:bg-pink-400" : ""} text-white font-medium font-sans text-md ${showName ? "w-full pl-4 h-8 md:h-10" : "h-6 md:h-7 aspect-square"}`}
         >
-          <svg
-            className={`w-4 h-4 md:w-6 md:h-6 flex-none hover:${showName ? "text-white" : "text-pink-400"} transition-all duration-300`}
-            viewBox="0 0 24 24"
-          >
-            <path fill="currentColor" d={images[key]} />
-          </svg>
+          <FaGithub className={`${showName ? "w-5.5 h-5.5" : "w-full h-full hover:text-pink-400"}`}/>
           {showName && (
             <span className="inline-block pr-4 pl-3 w-full text-center">
-              {key}
+              GitHub
             </span>
           )}
         </a>
-      ))}
+        <a
+          key={"Telegram"}
+          href={MediaUrls["Telegram"]}
+          target="_blank"
+          className={`group items-center inline-flex py-1 ${showName ? "ring-2 hover:ring-pink-400 rounded-full" : ""} bg-transparent ${showName ? "hover:bg-pink-400" : ""} text-white font-medium font-sans text-md ${showName ? "w-full pl-4 h-8 md:h-10" : "h-6 md:h-7 aspect-square"}`}
+        >
+          <FaTelegramPlane className={`${showName ? "w-5.5 h-5.5" : "w-full h-full hover:text-pink-400"}`}/>
+          {showName && (
+            <span className="inline-block pr-4 pl-3 w-full text-center">
+              Telegram
+            </span>
+          )}
+        </a>
+        <a
+          key={"GMail"}
+          href={MediaUrls["GMail"]}
+          target="_blank"
+          className={`group items-center inline-flex py-1 ${showName ? "ring-2 hover:ring-pink-400 rounded-full" : ""} bg-transparent ${showName ? "hover:bg-pink-400" : ""} text-white font-medium font-sans text-md ${showName ? "w-full pl-4 h-8 md:h-10" : "h-6 md:h-7 aspect-square"}`}
+        >
+          <SiGmail className={`${showName ? "w-5.5 h-5.5" : "w-full h-full hover:text-pink-400"}`}/>
+          {showName && (
+            <span className="inline-block pr-4 pl-3 w-full text-center">
+              Gmail
+            </span>
+          )}
+        </a>
     </div>
   );
 }

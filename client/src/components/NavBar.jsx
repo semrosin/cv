@@ -22,7 +22,7 @@ function NavBar(props) {
         ))}
       </ul>
       <SocialMedia
-        className="self-center mr-2 items-center"
+        className="self-center mr-6 items-center"
         mediaUrls={MediaUrls}
       />
     </div>

@@ -3,6 +3,8 @@ import { MailService } from "../../../utils/MailService.js";
 import SocialMedia from "../../../components/SocialMedia.jsx";
 import { MediaUrls } from "../../../data/MediaUrls.js";
 import { motion } from "motion/react";
+import { COMMENTS_ROUTE } from "../../../utils/consts.js";
+import { TbExternalLink } from "react-icons/tb";
 
 export default function Footer({ id = "Contacts" }) {
   const [email, setEmail] = useState("");
@@ -29,12 +31,10 @@ export default function Footer({ id = "Contacts" }) {
     if (!isPlaying) {
       setIsPlaying(true);
 
-      // Останавливаем предыдущий таймер
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
 
-      // Через указанное время возвращаем статичную картинку
       timerRef.current = setTimeout(() => {
         setIsPlaying(false);
       }, gifDuration);
@@ -114,17 +114,21 @@ export default function Footer({ id = "Contacts" }) {
             </button>
           </div>
         </form>
-        <div className="flex flex-col mb-3">
-          <div className="flex flex-col items-center">
-            <h5 className="mb-6 text-2xl font-sans font-bold text-pink-400 md:whitespace-nowrap">
-              Social Media
-            </h5>
-            <SocialMedia
-              mediaUrls={MediaUrls}
-              showName={true}
-              className="flex-col"
-            />
+        <div className="flex flex-col gap-18 items-center mb-15">
+          <div className="flex flex-col items-center justify-between">
+              <h5 className="mb-6 text-2xl font-sans font-bold text-pink-400 md:whitespace-nowrap">
+                Social Media
+              </h5>
+              <SocialMedia
+                mediaUrls={MediaUrls}
+                showName={true}
+                className="flex-col"
+              />
           </div>
+          <a href={COMMENTS_ROUTE} className="flex flex-row items-center gap-3 text-2xl font-sans font-bold text-pink-400 md:whitespace-nowrap">
+            Chatter
+            <TbExternalLink className="h-5.5" />
+          </a>
         </div>
         <div className="flex md:hidden ml:flex lg:hidden justify-center max-w-full">
           <img

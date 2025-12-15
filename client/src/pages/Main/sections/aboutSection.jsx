@@ -16,7 +16,6 @@ function AboutSection({ id = "About" }) {
     });
 
     return () => {
-      // Destroy Typed instance during cleanup to stop animation
       typed.destroy();
     };
   }, []);
