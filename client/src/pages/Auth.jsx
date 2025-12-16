@@ -23,7 +23,7 @@ const AuthPage = () => {
             <a href="/" className='absolute mb-125 px-2 bg-black' >
                 <img src="/img/whiteLogo.png" alt="white kitten logo" width={"60px"} />
             </a>
-            <div className="flex flex-col justify-between items-center border border-white rounded-2xl h-120 max-w-97 mx-3">
+            <div className="flex flex-col justify-between items-center border border-white rounded-2xl h-120 max-w-97 mx-8">
                 <h4 className="flex-1 text-xl mx-10 mt-20 font-bold text-center">Login with</h4>
                 <div className="flex flex-col justify-center w-full gap-3 pb-7 px-8">
                     <p className="py-2 px-3 text-center">Logining, I agree with the  <a href={CONSENT_ROUTE} className="text-pink-400">Privacy Policy.</a></p>

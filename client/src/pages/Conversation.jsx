@@ -40,7 +40,7 @@ const ConversationPage = () => {
   }
 
   return (
-    <div className="flex flex-col items-center h-screen w-screen bg-black">
+    <div className="flex flex-col items-center h-screen max-h-screen w-screen bg-black">
         <div className="w-full flex text-pink-400 mt-4 md:mt-7 items-center px-3 sm:px-10">
             <a href={MAIN_ROUTE}><FaArrowLeft size={20}/></a>
             <h1 className="flex text-[1.7rem] mt-0.5 font-sans font-bold md:whitespace-nowrap w-full justify-center">Conversation</h1>

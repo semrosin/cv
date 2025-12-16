@@ -2,7 +2,7 @@ import { frontSkills, backSkills } from "../data/Skills.js";
 
 export default function ScrollSkills({ className = "" }) {
   return (
-    <div className={`my-[2em] ${className}`}>
+    <div className={`my-[4em] ${className}`}>
       <div className="flex w-full py-[1em] overflow-hidden">
         <div className="scroll-track gap-[1em] flex justify-center will-change-transform animate-[scroll_35s_infinite_linear] pr-[1em]">
           {Object.entries(frontSkills).map(([skill, image]) => (
@@ -10,7 +10,7 @@ export default function ScrollSkills({ className = "" }) {
               key={skill}
               src={image}
               alt={skill}
-              className="flex-[0_0_10vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] w-[10vw] xl:w-[6vw] select-none"
+              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[4vw] w-[14vw] xl:w-[6vw] select-none"
             />
           ))}
         </div>
@@ -23,7 +23,7 @@ export default function ScrollSkills({ className = "" }) {
               key={skill}
               src={image}
               alt={skill}
-              className="flex-[0_0_10vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] w-[10vw] xl:w-[6vw] select-none"
+              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[4vw] w-[14vw] xl:w-[6vw] select-none"
             />
           ))}
         </div>
@@ -35,7 +35,7 @@ export default function ScrollSkills({ className = "" }) {
               key={skill}
               src={image}
               alt={skill}
-              className="flex-[0_0_10vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] w-[10vw] xl:w-[6vw] select-none"
+              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[4vw] w-[14vw] xl:w-[6vw] select-none"
             />
           ))}
         </div>
@@ -48,7 +48,7 @@ export default function ScrollSkills({ className = "" }) {
               key={skill}
               src={image}
               alt={skill}
-              className="flex-[0_0_10vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] w-[10vw] xl:w-[6vw] select-none"
+              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[4vw] w-[14vw] xl:w-[6vw] select-none"
             />
           ))}
         </div>

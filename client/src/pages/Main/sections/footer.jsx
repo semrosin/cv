@@ -108,7 +108,7 @@ export default function Footer({ id = "Contacts" }) {
           <div className="flex flex-row-reverse">
             <button
               type="submit"
-              className="px-4.5 h-10 text-lg font-medium rounded-lg border border-pink-400 hover:bg-pink-400 cursor-pointer transition-all duration-300"
+              className="px-4.5 h-10 text-lg font-medium rounded-lg border border-pink-400 hover:bg-pink-400 active:bg-pink-400 cursor-pointer transition-all duration-300"
             >
               Send
             </button>

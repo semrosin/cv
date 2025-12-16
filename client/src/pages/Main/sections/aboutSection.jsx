@@ -55,7 +55,7 @@ function AboutSection({ id = "About" }) {
             <a
               href="/docs/CV.pdf"
               download="CV_Rosin_Semyon.pdf"
-              className="inline-flex items-center w-full h-12 justify-center align-middle rounded-md border-[2px] border-pink-400 text-md md:text-xl font-medium hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 transition-all duration-300"
+              className="inline-flex items-center w-full h-12 justify-center align-middle rounded-md border-[2px] border-pink-400 text-md md:text-xl font-medium hover:shadow-[0_0_18px_var(--color-pink-400)] active:text-pink-400 active:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 transition-all duration-300"
             >
               Download CV
             </a>
