@@ -41,12 +41,12 @@ const ConversationPage = () => {
 
   return (
     <div className="flex flex-col items-center h-screen max-h-screen w-screen bg-black">
-        <div className="w-full flex text-pink-400 mt-4 md:mt-7 items-center px-3 sm:px-10">
+        <div className="w-full flex fixed text-pink-400 mt-4 md:mt-7 items-center px-3 sm:px-10">
             <a href={MAIN_ROUTE}><FaArrowLeft size={20}/></a>
             <h1 className="flex text-[1.7rem] mt-0.5 font-sans font-bold md:whitespace-nowrap w-full justify-center">Conversation</h1>
         </div>
 
-        <div className="w-full max-w-2xl flex-1 bg-black rounded-2xl shadow p-4 overflow-y-auto mt-4 no-scrollbar">
+        <div className="w-full max-w-2xl flex-1 bg-black rounded-2xl shadow p-4 overflow-y-auto mt-20 no-scrollbar">
             {comments.map((c) => (
                 <div key={c.id} className="flex gap-3 mb-4 max-w-full">
                     <img
@@ -79,7 +79,7 @@ const ConversationPage = () => {
                 className="flex-shrink-0 ml-2 text-white hover:text-pink-400 active:text-pink-400 disabled:text-gray-200"
                 disabled={!text.trim()}
             >
-                <FaArrowAltCircleUp size={25}/>
+                <FaArrowAltCircleUp size={27}/>
             </button>
             </div>
     </div>

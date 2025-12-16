@@ -10,7 +10,7 @@ export default function ScrollSkills({ className = "" }) {
               key={skill}
               src={image}
               alt={skill}
-              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[4vw] w-[14vw] xl:w-[6vw] select-none"
+              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] w-[14vw] xl:w-[6vw] select-none"
             />
           ))}
         </div>
@@ -23,7 +23,7 @@ export default function ScrollSkills({ className = "" }) {
               key={skill}
               src={image}
               alt={skill}
-              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[4vw] w-[14vw] xl:w-[6vw] select-none"
+              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] w-[14vw] xl:w-[6vw] select-none"
             />
           ))}
         </div>
@@ -35,7 +35,7 @@ export default function ScrollSkills({ className = "" }) {
               key={skill}
               src={image}
               alt={skill}
-              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[4vw] w-[14vw] xl:w-[6vw] select-none"
+              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] w-[14vw] xl:w-[6vw] select-none"
             />
           ))}
         </div>
@@ -48,7 +48,7 @@ export default function ScrollSkills({ className = "" }) {
               key={skill}
               src={image}
               alt={skill}
-              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[4vw] w-[14vw] xl:w-[6vw] select-none"
+              className="flex-[0_0_14vw] xl:flex-[0_0_6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] w-[14vw] xl:w-[6vw] select-none"
             />
           ))}
         </div>

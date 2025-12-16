@@ -5,7 +5,6 @@ declare global {
     namespace Express {
         interface Request {
             userId?: number;
-            user: UserRow;
             comment: CommentRow;
         }
     }
