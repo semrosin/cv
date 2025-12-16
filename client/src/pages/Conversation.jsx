@@ -2,9 +2,13 @@ import { useEffect, useRef, useState, useContext } from "react";
 import { Context } from "../main";
 import { api, API_URL } from "../utils/api";
 import { FaArrowAltCircleUp, FaArrowLeft } from "react-icons/fa";
-import { MAIN_ROUTE } from "../utils/consts";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import useLanguageAwareRoutes from "../hooks/useLanguageAwareRoutes";
 
 const ConversationPage = () => {
+    const { t } = useTranslation();
+    const routes = useLanguageAwareRoutes();
     const { userStore } = useContext(Context);
     const [comments, setComments] = useState([]);
     const [text, setText] = useState("");
@@ -42,8 +46,8 @@ const ConversationPage = () => {
   return (
     <div className="flex flex-col items-center h-screen max-h-screen w-screen bg-black">
         <div className="w-full flex fixed text-pink-400 mt-4 md:mt-7 items-center px-3 sm:px-10">
-            <a href={MAIN_ROUTE}><FaArrowLeft size={20}/></a>
-            <h1 className="flex text-[1.7rem] mt-0.5 font-sans font-bold md:whitespace-nowrap w-full justify-center">Conversation</h1>
+            <Link to={routes.main}><FaArrowLeft size={20}/></Link>
+            <a href={window.location.pathname} className="flex text-[1.7rem] mt-0.5 font-sans font-bold md:whitespace-nowrap w-full justify-center bg-black">{t("title.conversation")}</a>
         </div>
 
         <div className="w-full max-w-2xl flex-1 bg-black rounded-2xl shadow p-4 overflow-y-auto mt-20 no-scrollbar">
@@ -70,7 +74,7 @@ const ConversationPage = () => {
                 name="comment"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Write a message..."
+                placeholder={t("conversation.message.default")}
                 onKeyDown={(e) => e.key === "Enter" && sendComment()}
                 className="flex-1 min-w-0 px-3 py-2 text-white bg-transparent border border-white rounded-xl focus:border-pink-400 outline-none placeholder-gray-500"
             />

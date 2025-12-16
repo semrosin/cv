@@ -2,21 +2,22 @@ import { useState, useRef } from "react";
 import { MailService } from "../../../utils/MailService.js";
 import SocialMedia from "../../../components/SocialMedia.jsx";
 import { MediaUrls } from "../../../data/MediaUrls.js";
-import { motion } from "motion/react";
-import { COMMENTS_ROUTE } from "../../../utils/consts.js";
+import { Link } from "react-router-dom";
 import { TbExternalLink } from "react-icons/tb";
+import useLanguageAwareRoutes from "../../../hooks/useLanguageAwareRoutes.jsx"
+import { useTranslation } from "react-i18next";
 
 export default function Footer({ id = "Contacts" }) {
+  const { t } = useTranslation();
+  const routes = useLanguageAwareRoutes();
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [comment, setComment] = useState("");
-  let [title, setTitle] = useState("I’d be glad to get your feedback");
   const send = MailService();
   function handleSubmit(e) {
     e.preventDefault();
     if (email !== "") {
       send({ name: email, company: company, message: comment });
-      setTitle("Thanks for feedback!");
     }
     setEmail("");
     setCompany("");
@@ -42,12 +43,12 @@ export default function Footer({ id = "Contacts" }) {
   };
 
   return (
-    <motion.section
+    <section
       id={id}
       className="flex flex-col content-center min-h-[100vh] md:min-h-[80vh] bg-black shadow-[0_-12px_100px_28px_black]"
     >
       <div className="flex justify-center h-70 mt-15 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
-        {title}
+        {t("title.footer")}
       </div>
       <div className="flex flex-col mx-[8vw] h-full md:flex-row md:items-start justify-between md:gap-25">
         <form
@@ -55,7 +56,7 @@ export default function Footer({ id = "Contacts" }) {
           className="flex flex-col lg:w-[calc(50%-2.5rem)] text-white mb-10"
         >
           <div className="mb-4 ml-2 text-2xl font-sans font-bold text-pink-400">
-            Contact Me
+            {t("footer.contact")}
           </div>
           <div className="my-2 block max-w-full grow bg-transparent">
             <label
@@ -78,7 +79,7 @@ export default function Footer({ id = "Contacts" }) {
               htmlFor="company"
               className="absolute whitespace-nowrap -mt-3 bg-black px-1 text-sm/6 mx-2.5 font-medium text-white"
             >
-              Who are you from?
+              {t("footer.form.who")}
             </label>
             <input
               id="company"
@@ -94,7 +95,7 @@ export default function Footer({ id = "Contacts" }) {
               htmlFor="comment"
               className="absolute whitespace-nowrap -mt-3 bg-black px-1 text-sm/6 mx-2.5 font-medium text-white"
             >
-              Comment / suggestion
+              {t("footer.form.comment")}
             </label>
             <textarea
               id="comment"
@@ -110,14 +111,14 @@ export default function Footer({ id = "Contacts" }) {
               type="submit"
               className="px-4.5 h-10 text-lg font-medium rounded-lg border border-pink-400 hover:bg-pink-400 active:bg-pink-400 cursor-pointer transition-all duration-300"
             >
-              Send
+              {t("footer.form.send")}
             </button>
           </div>
         </form>
         <div className="flex flex-col gap-18 items-center mb-15">
           <div className="flex flex-col items-center justify-between">
               <h5 className="mb-6 text-2xl font-sans font-bold text-pink-400 md:whitespace-nowrap">
-                Social Media
+                {t("footer.social")}
               </h5>
               <SocialMedia
                 mediaUrls={MediaUrls}
@@ -125,10 +126,10 @@ export default function Footer({ id = "Contacts" }) {
                 className="flex-col"
               />
           </div>
-          <a href={COMMENTS_ROUTE} className="flex flex-row items-center gap-3 text-2xl font-sans font-bold text-pink-400 md:whitespace-nowrap">
-            Chatter
+          <Link to={routes.comments} className="flex flex-row items-center gap-3 text-2xl font-sans font-bold text-pink-400 md:whitespace-nowrap">
+            {t("footer.chatter")}
             <TbExternalLink className="h-5.5" />
-          </a>
+          </Link>
         </div>
         <div className="flex md:hidden ml:flex lg:hidden justify-center max-w-full">
           <img
@@ -139,6 +140,6 @@ export default function Footer({ id = "Contacts" }) {
           />
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

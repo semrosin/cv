@@ -4,6 +4,7 @@ import { createContext, StrictMode } from 'react';
 import UserStore from './store/UserStore';
 import { jwtDecode } from 'jwt-decode';
 import './index.css';
+import "./i18n";
 
 export const Context = createContext({
   userStore: null,

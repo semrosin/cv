@@ -1,10 +1,13 @@
 import { Skills } from "../data/Skills.js";
 import { forwardRef } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 export const WorkCard = forwardRef(({ work, className = "" }, ref) => {
-  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { lang } = useParams();
+
   return (
     <a
       ref={ref}
@@ -15,7 +18,7 @@ export const WorkCard = forwardRef(({ work, className = "" }, ref) => {
       <div className="relative w-full overflow-hidden">
         <img
           src={work.imageURL}
-          alt={work.title}
+          alt={work.titles[lang]}
           className="w-full object-cover h-60 max-h-60"
         />
         <div className="absolute left-0 right-0 bottom-0 h-16 pointer-events-none bg-gradient-to-b from-transparent to-zinc-900" />
@@ -23,11 +26,11 @@ export const WorkCard = forwardRef(({ work, className = "" }, ref) => {
 
       <div className="flex flex-col h-full mx-5">
         <div className="flex justify-center min-h-30 text-xl font-sans font-bold mx-2 items-center text-center">
-          {work.title}
+          {work.titles[lang]}
         </div>
         <hr className="border-none mx-7 h-[0.2px] bg-pink-400"></hr>
         <div className="flex flex-col h-full max-h-full justify-end mb-5">
-          <p className="p-2 text-gray-300 text-sm font-sans">Technologies</p>
+          <p className="p-2 text-gray-300 text-sm font-sans">{t("work.technologies")}</p>
           <div className="flex flex-row justify-start">
             {work.skills.map((skill) => (
               <img

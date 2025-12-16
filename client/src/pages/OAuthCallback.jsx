@@ -1,7 +1,7 @@
-import { useEffect, useContext } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
-import { Context } from '../main';
-import { COMMENTS_ROUTE } from '../utils/consts';
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Context } from "../main";
+import { COMMENTS_ROUTE, AUTH_ROUTE } from "../utils/consts";
 
 const OAuthCallback = () => {
     const [searchParams] = useSearchParams();
@@ -10,11 +10,13 @@ const OAuthCallback = () => {
     const { userStore } = useContext(Context);
 
     useEffect(() => {
+        const savedLang = localStorage.getItem("lang") || "ru";
+        
         if (token) {
             userStore.login(token);
-            navigate(COMMENTS_ROUTE, { replace: true });
+            navigate(`/${savedLang}/${COMMENTS_ROUTE}`, { replace: true });
         } else {
-            navigate('/auth', { replace: true });
+            navigate(`/${savedLang}/${AUTH_ROUTE}`, { replace: true });
         }
     }, [token, navigate, userStore]);
 
