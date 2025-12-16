@@ -45,12 +45,12 @@ const ConversationPage = () => {
 
   return (
     <div className="flex flex-col items-center h-screen max-h-screen w-screen bg-black">
-        <div className="w-full flex fixed text-pink-400 mt-4 md:mt-7 items-center px-3 sm:px-10">
-            <Link to={routes.main}><FaArrowLeft size={20}/></Link>
+        <div className="w-full flex fixed text-pink-400 mt-4 md:mt-7 items-center bg-black">
+            <Link to={routes.main} className="pl-5 md:pl-10"><FaArrowLeft size={20}/></Link>
             <a href={window.location.pathname} className="flex text-[1.7rem] mt-0.5 font-sans font-bold md:whitespace-nowrap w-full justify-center bg-black">{t("title.conversation")}</a>
         </div>
 
-        <div className="w-full max-w-2xl flex-1 bg-black rounded-2xl shadow p-4 overflow-y-auto mt-20 no-scrollbar">
+        <div className="w-full max-w-2xl flex-1 bg-black rounded-2xl shadow p-4 overflow-y-scroll mt-20 no-scrollbar">
             {comments.map((c) => (
                 <div key={c.id} className="flex gap-3 mb-4 max-w-full">
                     <img
