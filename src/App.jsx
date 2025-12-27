@@ -1,7 +1,7 @@
-import NavBar from "./AboutPage/NavBar";
-import AboutPage from "./AboutPage/AboutPage";
-import WorksPage from "./WorksPage/WorksPage";
-import ContactsFooter from "./ContactsFooter/ContactsFooter";
+import NavBar from "./components/NavBar";
+import AboutSection from "./sections/About";
+import WorksSection from "./sections/Works";
+import ContactsSection from "./sections/Contacts.jsx";
 
 function App() {
   const sections = ["About", "Works", "Contacts"];
@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="h-auto bg-[#0a0a0a]">
       <NavBar sections={sections} />
-      <AboutPage />
-      <WorksPage />
-      <ContactsFooter />
+      <AboutSection />
+      <WorksSection />
+      <ContactsSection />
     </div>
   );
 }

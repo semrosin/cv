@@ -1,10 +1,10 @@
 import { useState, useRef } from "react";
-import { MailService } from "./MailService";
-import SocialMedia from "../AboutPage/SocialMedia";
-import { MediaUrls } from "../data/MediaUrls";
+import { MailService } from "../utils/MailService.js";
+import SocialMedia from "../components/SocialMedia.jsx";
+import { MediaUrls } from "../data/MediaUrls.js";
 import { motion } from "motion/react";
 
-export default function ContactsFooter({ id = "Contacts" }) {
+const ContactsSection = ({ id = "Contacts" }) => {
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [comment, setComment] = useState("");
@@ -138,3 +138,5 @@ export default function ContactsFooter({ id = "Contacts" }) {
     </motion.section>
   );
 }
+
+export default ContactsSection;

@@ -1,10 +1,10 @@
-import ScrollSkills from "./ScrollSkills";
-import { MWorkCard } from "./WorkCard";
+import ScrollSkills from "../components/ScrollSkills.jsx";
+import { MWorkCard } from "../components/WorkCard.jsx";
 import { Works } from "../data/Works.js";
 import { MediaUrls } from "../data/MediaUrls.js";
 import { motion } from "motion/react";
 
-export default function WorksPage({ id = "Works" }) {
+export default function WorksSection({ id = "Works" }) {
   const cardAnimation = {
     hidden: {
       y: 100,

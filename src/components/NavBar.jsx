@@ -1,5 +1,5 @@
 import { MediaUrls } from "../data/MediaUrls.js";
-import SocialMedia from "./SocialMedia";
+import SocialMedia from "./SocialMedia.jsx";
 
 function NavBar(props) {
   const sectionRefs = props.sections.map((sectionName) => ({

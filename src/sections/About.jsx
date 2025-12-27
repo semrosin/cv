@@ -2,7 +2,7 @@ import React from "react";
 import { MediaUrls } from "../data/MediaUrls.js";
 import Typed from "typed.js";
 
-function AboutPage({ id = "About" }) {
+const AboutSection = ({ id = "About" }) => {
   const el = React.useRef(null);
 
   React.useEffect(() => {
@@ -37,7 +37,7 @@ function AboutPage({ id = "About" }) {
           />
           <div className="md:col-span-6 font-bold text-3xl md:text-4xl xl:text-6xl ml-[4%] md:ml-0 mt-2">
             <div className="block m-0 font-sans">Hi! I'm Semyon Rosin</div>
-            <span className="inline-flex align-middle my-[0.5vh] font-code">
+            <span className="inline-flex align-middle my-[1vh] font-code">
               <h5 className="inline-flex flex-col justify-center whitespace-nowrap mt-1 select-none font-light text-gray-500 text-base lg:text-xl xl:text-3xl">
                 $
               </h5>
@@ -74,4 +74,4 @@ function AboutPage({ id = "About" }) {
   );
 }
 
-export default AboutPage;
+export default AboutSection;
