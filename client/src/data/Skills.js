@@ -15,11 +15,11 @@ export const backSkills = {
   GitHub: "/img/back/GitHub.png",
   Linux: "/img/back/Linux.svg",
   CSharp: "/img/back/CSharp.svg",
+  Net: "/img/back/NET.svg",
   NetCore: "/img/back/NETCore.png",
   Kotlin: "/img/back/Kotlin.svg",
   JetpackCompose: "/img/back/Compose.png",
   JUnit5: "/img/back/JUnit.svg",
-  Gradle: "/img/back/Gradle.svg",
   C: "/img/back/C.svg",
 };
 
