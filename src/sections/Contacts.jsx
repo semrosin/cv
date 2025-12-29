@@ -78,7 +78,7 @@ const ContactsSection = ({ id = "Contacts" }) => {
               htmlFor="company"
               className="absolute whitespace-nowrap -mt-3 bg-black px-1 text-sm/6 mx-2.5 font-medium text-white"
             >
-              Who are you from?
+              Who are you?
             </label>
             <input
               id="company"
@@ -119,11 +119,7 @@ const ContactsSection = ({ id = "Contacts" }) => {
             <h5 className="mb-6 text-2xl font-sans font-bold text-pink-400 md:whitespace-nowrap">
               Social Media
             </h5>
-            <SocialMedia
-              mediaUrls={MediaUrls}
-              showName={true}
-              className="flex-col"
-            />
+            <SocialMedia showName={true} className="flex-col" />
           </div>
         </div>
         <div className="flex md:hidden ml:flex lg:hidden justify-center max-w-full">
@@ -137,6 +133,6 @@ const ContactsSection = ({ id = "Contacts" }) => {
       </div>
     </motion.section>
   );
-}
+};
 
 export default ContactsSection;
