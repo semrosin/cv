@@ -28,13 +28,18 @@ const AboutSection = ({ id = "About" }) => {
     >
       <div className="grid grid-cols-10 mx-[5%] lg:mx-[12%]">
         <div className="flex flex-col col-span-10 md:col-span-6 justify-start font-sans">
-          <img
-            src="img/avatar_circle.png"
-            alt="avatar"
-            width="50px"
-            height="50px"
-            className="block md:hidden col-span-2 my-[1em] border-[1px] border-solid border-pink-400 rounded-full"
-          />
+          <a
+            href={MediaUrls.GitHub}
+            target="_blank"
+          >
+            <img
+              src="img/avatar_circle.png"
+              alt="avatar"
+              width="50px"
+              height="50px"
+              className="block md:hidden col-span-2 my-[1em] border-[1px] border-solid border-pink-400 rounded-full"
+            />
+          </a>
           <div className="md:col-span-6 font-bold text-3xl md:text-4xl xl:text-6xl ml-[4%] md:ml-0 mt-2">
             <div className="block m-0 font-sans">Hi! I'm Semyon Rosin</div>
             <span className="inline-flex align-middle my-[1vh] font-code">
@@ -66,8 +71,14 @@ const AboutSection = ({ id = "About" }) => {
           <a
             href={MediaUrls.GitHub}
             target="_blank"
-            className="flex aspect-square min-h-60 lg:min-h-75 bg-[url('/img/avatar_square.jpg')] bg-center bg-cover hover:-translate-x-1 hover:-translate-y-1 shadow-[0.5rem_0.5rem_0px_0px_var(--color-pink-400)] hover:shadow-[0.75rem_0.75rem_0px_0px_var(--color-pink-400)]"
-          />
+            className="flex aspect-square min-h-60 lg:max-h-75 hover:-translate-x-1 hover:-translate-y-1 shadow-[0.5rem_0.5rem_0px_0px_var(--color-pink-400)] hover:shadow-[0.75rem_0.75rem_0px_0px_var(--color-pink-400)]"
+          >
+            <img
+              src="img/avatar_square.jpg"
+              alt="avatar"
+              className="w-full h-full"
+            />
+          </a>
         </div>
       </div>
     </section>

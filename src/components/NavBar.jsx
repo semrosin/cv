@@ -20,7 +20,7 @@ const NavBar = ({ sections }) => {
         ))}
       </ul>
       <div className="flex">
-        <SocialMedia className="self-center mr-6 items-center" />
+        <SocialMedia className="self-center mr-4 2xl:mr-5 items-center" />
       </div>
     </div>
   );
