@@ -59,7 +59,7 @@ const AboutSection = ({ id = "About" }) => {
           </div>
           <div className="inline-flex flex-col gap-3 items-start mt-6 w-40 md:w-50">
             <a
-              href="/docs/CV.pdf"
+              href="docs/CV.pdf"
               download="CV_Rosin_Semyon.pdf"
               className="inline-flex items-center w-full p-2 md:p-3 justify-center align-middle rounded-lg border-[1px] border-pink-400 text-md md:text-xl font-medium hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 active:shadow-[0_0_18px_var(--color-pink-400)] active:text-pink-400 transition-all duration-300"
             >

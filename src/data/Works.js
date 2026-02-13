@@ -12,12 +12,12 @@ export const Works = {
     "File uploading as student's solutions in HwProj service",
     "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636",
     ["TypeScript", "React", "MaterialUI", "CSharp", "NetCore"],
-    "/img/HwProj.png"
+    "img/HwProj.png"
   ),
   CV: new Work(
     "This CV",
     "",
     ["JavaScript", "React", "Tailwind"],
-    "/img/name.png"
+    "img/name.png"
   ),
 };

@@ -124,7 +124,7 @@ const ContactsSection = ({ id = "Contacts" }) => {
         </div>
         <div className="flex md:hidden ml:flex lg:hidden justify-center max-w-full">
           <img
-            src={isPlaying ? "/img/spinningKitten.gif" : "/img/kittenBack.png"}
+            src={isPlaying ? "img/spinningKitten.gif" : "img/kittenBack.png"}
             onClick={handleClick}
             alt="pixel kitten's back"
             className="flex aspect-ratio min-w-[200px] max-h-[400px] max-w-[400px]"
