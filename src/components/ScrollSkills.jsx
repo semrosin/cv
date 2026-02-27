@@ -10,6 +10,7 @@ export default function ScrollSkills({ className = "" }) {
               key={skill}
               src={image}
               alt={skill}
+              loading="lazy"
               className="shrink-0 h-[14vw] md:h-[10vw] xl:h-[6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] object-cover select-none min-w-0"
             />
           ))}
@@ -18,6 +19,7 @@ export default function ScrollSkills({ className = "" }) {
               key={`dup-${skill}`}
               src={image}
               alt={skill}
+              loading="lazy"
               className="shrink-0 h-[14vw] md:h-[10vw] xl:h-[6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] object-cover select-none min-w-0"
             />
           ))}
@@ -30,6 +32,7 @@ export default function ScrollSkills({ className = "" }) {
               key={skill}
               src={image}
               alt={skill}
+              loading="lazy"
               className="shrink-0 h-[14vw] md:h-[10vw] xl:h-[6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] object-cover select-none min-w-0"
             />
           ))}
@@ -38,6 +41,7 @@ export default function ScrollSkills({ className = "" }) {
               key={`dup-${skill}`}
               src={image}
               alt={skill}
+              loading="lazy"
               className="shrink-0 h-[14vw] md:h-[10vw] xl:h-[6vw] aspect-square rounded-lg md:rounded-2xl mx-[2vw] object-cover select-none min-w-0"
             />
           ))}

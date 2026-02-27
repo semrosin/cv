@@ -14,6 +14,7 @@ export const WorkCard = forwardRef(({ work, className = "" }, ref) => {
           src={work.imageURL}
           alt={work.title}
           className="w-full object-cover h-60 max-h-60"
+          loading="lazy"
         />
         {/* Gradient between and image card */}
         <div className="absolute left-0 right-0 bottom-0 h-16 pointer-events-none bg-gradient-to-b from-transparent to-zinc-900" />
@@ -33,6 +34,7 @@ export const WorkCard = forwardRef(({ work, className = "" }, ref) => {
                 src={Skills[skill]}
                 alt={skill}
                 className="flex aspect-square rounded-lg mx-2 w-7"
+                loading="lazy"
               />
             ))}
           </div>
