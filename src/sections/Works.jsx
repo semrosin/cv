@@ -17,8 +17,10 @@ export default function WorksSection({ id = "Works" }) {
     }),
   };
   return (
-    <section id={id} className="min-h-[100vh]">
-      <ScrollSkills />
+    <section id={id} className="min-h-screen">
+
+      <ScrollSkills className="mb-[2em] mt-[4.5em]"/>
+
       <div className="flex flex-wrap justify-center my-45 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
         Check out
         <a href={MediaUrls.GitHub} target="_blank">

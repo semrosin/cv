@@ -2,9 +2,9 @@ import { frontSkills, backSkills } from "../data/Skills.js";
 
 export default function ScrollSkills({ className = "" }) {
   return (
-    <div className={`mb-[2em] mt-[4.5em] ${className}`}>
+    <div className={`${className}`}>
       <div className="flex w-full py-[1em] overflow-hidden">
-        <div className="scroll-track min-w-[200%] flex gap-[1em] justify-center will-change-transform animate-[scroll_35s_infinite_linear]  pr-[1em] flex-shrink-0">
+        <div className="flex min-w-[200%] gap-[1em] justify-center will-change-transform animate-[scroll_35s_infinite_linear]  pr-[1em] shrink-0">
           {Object.entries(frontSkills).map(([skill, image]) => (
             <img
               key={skill}
@@ -26,7 +26,7 @@ export default function ScrollSkills({ className = "" }) {
         </div>
       </div>
       <div className="flex w-full py-[1em] overflow-hidden">
-        <div className="min-w-[200%] flex gap-[1em] justify-center will-change-transform animate-[scroll-reverse_35s_infinite_linear] pr-[1em] flex-shrink-0">
+        <div className="min-w-[200%] flex gap-[1em] justify-center will-change-transform animate-[scroll-reverse_35s_infinite_linear] pr-[1em] shrink-0">
           {Object.entries(backSkills).map(([skill, image]) => (
             <img
               key={skill}

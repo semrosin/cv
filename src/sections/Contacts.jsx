@@ -44,11 +44,11 @@ const ContactsSection = ({ id = "Contacts" }) => {
   return (
     <motion.section
       id={id}
-      className="flex flex-col content-center min-h-[100vh] md:min-h-[80vh] bg-black shadow-[0_-12px_100px_28px_black]"
+      className="flex flex-col content-center min-h-screen md:min-h-[80vh] bg-black shadow-[0_-12px_100px_28px_black]"
     >
-      <div className="flex justify-center h-70 mt-15 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
+      <h2 className="flex justify-center h-70 mt-15 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
         {title}
-      </div>
+      </h2>
       <div className="flex flex-col mx-[8vw] h-full md:flex-row md:items-start justify-between md:gap-25">
         <form
           onSubmit={handleSubmit}

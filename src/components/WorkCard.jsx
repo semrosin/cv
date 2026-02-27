@@ -17,7 +17,7 @@ export const WorkCard = forwardRef(({ work, className = "" }, ref) => {
           loading="lazy"
         />
         {/* Gradient between and image card */}
-        <div className="absolute left-0 right-0 bottom-0 h-16 pointer-events-none bg-gradient-to-b from-transparent to-zinc-900" />
+        <div className="absolute left-0 right-0 bottom-0 h-16 pointer-events-none bg-linear-to-b from-transparent to-zinc-900" />
       </div>
 
       <div className="flex flex-col h-full mx-5">

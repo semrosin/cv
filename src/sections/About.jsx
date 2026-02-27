@@ -24,7 +24,7 @@ const AboutSection = ({ id = "About" }) => {
   return (
     <section
       id={id}
-      className="flex flex-nowrap flex-col justify-start w-full md:justify-center md:h-[100vh]"
+      className="flex flex-nowrap flex-col justify-start w-full md:justify-center md:h-screen"
     >
       <div className="grid grid-cols-10 mx-[5%] lg:mx-[12%]">
         <div className="flex flex-col col-span-10 md:col-span-6 justify-start font-sans">
@@ -37,7 +37,7 @@ const AboutSection = ({ id = "About" }) => {
               alt="avatar"
               width="50px"
               height="50px"
-              className="block md:hidden col-span-2 my-[1em] border-[1px] border-solid border-pink-400 rounded-full"
+              className="block md:hidden col-span-2 my-[1em] border border-solid border-pink-400 rounded-full"
             />
           </a>
           <div className="md:col-span-6 font-bold text-3xl md:text-4xl xl:text-6xl ml-[4%] md:ml-0 mt-2">
@@ -61,7 +61,7 @@ const AboutSection = ({ id = "About" }) => {
             <a
               href="docs/CV.pdf"
               download="CV_Rosin_Semyon.pdf"
-              className="inline-flex items-center w-full p-2 md:p-3 justify-center align-middle rounded-lg border-[1px] border-pink-400 text-md md:text-xl font-medium hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 active:shadow-[0_0_18px_var(--color-pink-400)] active:text-pink-400 transition-all duration-300"
+              className="inline-flex items-center w-full p-2 md:p-3 justify-center align-middle rounded-lg border border-pink-400 text-md md:text-xl font-medium hover:shadow-[0_0_18px_var(--color-pink-400)] hover:text-pink-400 active:shadow-[0_0_18px_var(--color-pink-400)] active:text-pink-400 transition-all duration-300"
             >
               Download CV
             </a>
