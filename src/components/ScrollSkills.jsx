@@ -38,7 +38,7 @@ export default function ScrollSkills({ className = "" }) {
           ))}
           {Object.entries(backSkills).map(([skill, image]) => (
             <img
-              key={`dup-${skill}`}
+              key={`${skill}`}
               src={image}
               alt={skill}
               loading="lazy"

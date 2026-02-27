@@ -1,8 +1,7 @@
 import { useState, useRef } from "react";
+import { motion } from "motion/react";
 import { MailService } from "../utils/MailService.js";
 import SocialMedia from "../components/SocialMedia.jsx";
-import { MediaUrls } from "../data/MediaUrls.js";
-import { motion } from "motion/react";
 
 const ContactsSection = ({ id = "Contacts" }) => {
   const [email, setEmail] = useState("");
@@ -29,12 +28,10 @@ const ContactsSection = ({ id = "Contacts" }) => {
     if (!isPlaying) {
       setIsPlaying(true);
 
-      // Останавливаем предыдущий таймер
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
 
-      // Через указанное время возвращаем статичную картинку
       timerRef.current = setTimeout(() => {
         setIsPlaying(false);
       }, gifDuration);
