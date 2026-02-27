@@ -83,7 +83,7 @@ const ContactsSection = ({ id = "Contacts" }) => {
             <input
               id="company"
               type="text"
-              name="company"
+              name="organization"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
               className="block w-full grow bg-transparent py-1.5 pr-3 pl-2 mb-3 font-sans text-lg border-2 border-gray-200 rounded-lg placeholder:text-gray-500 focus:border-pink-400 focus:outline-none transition-colors duration-150"

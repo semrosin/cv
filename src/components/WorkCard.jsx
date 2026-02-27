@@ -7,6 +7,7 @@ export const WorkCard = forwardRef(({ work, className = "" }, ref) => {
     <a
       ref={ref}
       href={work.url}
+      title="Code on GitHub"
       className={`group flex flex-col h-120 min-w-70 w-77 rounded-2xl bg-zinc-900 ${className} hover:shadow-[0_0_18px_var(--color-pink-400)] hover:scale-101 transition-all duration-300 overflow-hidden`}
     >
       <div className="relative w-full overflow-hidden">

@@ -9,7 +9,8 @@ export default function SocialMedia({ showName = false, className = "" }) {
     >
       <a
         key={"GitHub"}
-        href={MediaUrls["GitHub"]}
+        href={MediaUrls.GitHub}
+        title="GitHub"
         target="_blank"
         className={`group items-center inline-flex py-1 ${showName ? "ring-2 hover:ring-pink-400 rounded-full" : ""} bg-transparent ${showName ? "hover:bg-pink-400" : ""} text-white font-medium font-sans text-md ${showName ? "w-full pl-4 h-8 md:h-10" : "h-6 md:h-7 aspect-square"}`}
       >
@@ -24,7 +25,8 @@ export default function SocialMedia({ showName = false, className = "" }) {
       </a>
       <a
         key={"Telegram"}
-        href={MediaUrls["Telegram"]}
+        href={MediaUrls.Telegram}
+        title="Telegram"
         target="_blank"
         className={`group items-center inline-flex py-1 ${showName ? "ring-2 hover:ring-pink-400 rounded-full" : ""} bg-transparent ${showName ? "hover:bg-pink-400" : ""} text-white font-medium font-sans text-md ${showName ? "w-full pl-4 h-8 md:h-10" : "h-6 md:h-7 aspect-square"}`}
       >
@@ -39,8 +41,9 @@ export default function SocialMedia({ showName = false, className = "" }) {
       </a>
       <a
         key={"GMail"}
-        href={MediaUrls["GMail"]}
+        href={MediaUrls.GMail}
         target="_blank"
+        title="GMail"
         className={`group items-center inline-flex py-1 ${showName ? "ring-2 hover:ring-pink-400 rounded-full" : ""} bg-transparent ${showName ? "hover:bg-pink-400" : ""} text-white font-medium font-sans text-md ${showName ? "w-full pl-4 h-8 md:h-10" : "h-6 md:h-7 aspect-square"}`}
       >
         <SiGmail

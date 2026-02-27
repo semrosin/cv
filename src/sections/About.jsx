@@ -37,6 +37,7 @@ const AboutSection = ({ id = "About" }) => {
               alt="avatar"
               width="50px"
               height="50px"
+              title="GitHub"
               className="block md:hidden col-span-2 my-[1em] border border-solid border-pink-400 rounded-full"
             />
           </a>
@@ -76,6 +77,7 @@ const AboutSection = ({ id = "About" }) => {
             <img
               src="img/avatar_square.jpg"
               alt="avatar"
+              title="GitHub"
               className="w-full h-full"
             />
           </a>

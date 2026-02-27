@@ -23,7 +23,7 @@ export default function WorksSection({ id = "Works" }) {
 
       <div className="flex flex-wrap justify-center my-45 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
         Check out
-        <a href={MediaUrls.GitHub} target="_blank">
+        <a href={MediaUrls.GitHub} target="_blank" title="GitHub">
           <pre className="inline-flex text-5xl text-pink-400 font-sans leading-[1.2]">
             {" my code"}
           </pre>
