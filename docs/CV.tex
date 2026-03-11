@@ -1,0 +1,149 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
+\usepackage{xcolor}
+\usepackage{soul}
+\definecolor{markeryellow}{RGB}{253,255,200}
+\let\oldhref\href
+\renewcommand{\href}[2]{\oldhref{#1}{\sethlcolor{markeryellow}\hl{#2}}}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Формат заголовков секций
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\titlerule \vspace{-5pt}]
+
+% Команды для удобства
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Семён Росин} \\ \vspace{5pt}
+    \href{https://t.me/too_selfish_4u}{tg: Semyon Rosin} $|$
+    \href{mailto:semen.rosin1@gmail.com}{semen.rosin1@gmail.com} $|$
+    \href{https://github.com/semrosin}{github.com/semrosin} $|$
+    \href{https://semrosin.ru}{semrosin.ru}
+\end{center}
+
+%-----------ABOUT-----------
+\section{О себе}
+\begin{itemize}[leftmargin=0.15in, label={}]
+ \small{
+  Я студент 2 курса программной инженерии, фокусируюсь на фронтенд‑разработке. В учебных и pet‑проектах совмещаю разработку с базовым дизайном, стремлюсь делать понятные и удобные интерфейсы. Ищу стажировку, где смогу развивать технические навыки и участвовать в создании реальных продуктов.
+  }
+\end{itemize}
+
+%-----------EDUCATION-----------
+\section{Образование}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Санкт-Петербургский Государственный Университет}{2024 -- н.в.}
+    {09.03.04 Программная инженерия, бакалавриат (2 курс)}{Математико-механический факультет}
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Проекты}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {\href{https://github.com/semrosin/cv}{Сайт-визитка}}{декабрь 2025}
+    {JavaScript, React, Tailwind CSS}{Индивидуальный проект}
+    \resumeItemListStart
+      \resumeItem{Разработка SPA-сайта с адаптивной версткой (mobile-first)}
+      \resumeItem{Реализация форм обратной связи и обработки данных}
+      \resumeItem{Внедрение Yandex метрик с использованием Google Tag Manager}
+      \resumeItem{Настройка CI/CD для автоматической сборки и публикации сайта}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {\href{https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636}{Механизм загрузки файлов для образовательной платформы}}{октябрь -- ноябрь 2025}
+    {TypeScript, React, C\#, ASP.NET}{Командный проект}
+    \resumeItemListStart
+      \resumeItem{Разработка клиентской части механизма и валидации типов файлов на React + TypeScript}
+      \resumeItem{Разработка механизма валидации файлов в серверной логике на C\#}
+      \resumeItem{Интеграция функциональности в существующую систему платформы}
+      \resumeItem{Работа с API}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {\href{https://github.com/spbu-coding-2024/graphs-graphs-team-2}{Desktop-приложение для анализа графов}}{март -- май 2025}
+    {Kotlin, Jetpack Compose}{Командный проект}
+    \resumeItemListStart
+      \resumeItem{Участие в проектировании архитектуры}
+      \resumeItem{Реализация UI на Jetpack Compose}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Технические навыки}
+\begin{itemize}[leftmargin=0.15in, label={}]
+ \small{
+  \item{
+   \textbf{Языки:} JavaScript, TypeScript, HTML, CSS, C\#, Kotlin, C \\
+   \textbf{Фреймворки и библиотеки:} React, Tailwind CSS, Jetpack Compose, MUI \\
+   \textbf{Инструменты:} Git, GitHub, ESLint, Prettier, SQLite, REST API  \\
+  }
+ }
+\end{itemize}
+
+%-----------SOFT SKILLS-----------
+\section{Soft Skills}
+\begin{itemize}
+    
+    \item Командная разработка ПО в небольших группах
+    \item Обсуждение идей и архитектурных решений на этапе проектирования
+    \item Генерация креативных IT-идей и их проработка в команде
+\end{itemize}
+
+\end{document}
