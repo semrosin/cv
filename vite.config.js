@@ -8,4 +8,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   base: "/",
   plugins: [tailwindcss(), react()],
+  server: {
+    host: '127.0.0.1',
+  },
 });
