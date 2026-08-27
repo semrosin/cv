@@ -98,7 +98,7 @@ Landscape images at 1600×900 pixels or larger will crop well in both the deskto
 - `src/sections/Works.jsx`: maps the ordered collection and keeps its current reveal animation.
 - `src/components/WorkCard.jsx`: becomes an internal link to the project hash route and implements the responsive horizontal/vertical card layout.
 - `src/sections/ProjectDetails.jsx`: renders the shared project-page structure from a project record.
-- `src/components/NavBar.jsx`: remains the shared header; its section links continue to take visitors back to the matching landing-page section.
+- `src/components/NavBar.jsx`: remains the shared header. On the landing page it keeps the existing section links; on a project page its left side contains only `Home` (linking to `#/`), while the existing social-media controls remain on the right.
 
 ## Accessibility and resilience
 
