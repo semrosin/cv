@@ -17,6 +17,7 @@
 - Keep public copy in English and use the exact HwProj claims and PR URLs from the specification.
 - Reuse `img/HwProj.png` and `img/name.png`; these files are replaced by the user and must be used for both a card and its detail-page hero.
 - Preserve the existing dark/zinc/pink palette, Poppins/IBM Plex Mono fonts, Motion entrance animation, and responsive behavior.
+- On project cards, render `work.skills` as text separated by ` • `; do not show technology icons there. Existing technology icons may appear only on the project detail page.
 - On project pages, the navbar's left side contains only `Home` (`href="#/"`) and its existing social controls remain on the right.
 - External links opened in a new tab use `target="_blank"` and `rel="noreferrer"`.
 - Do not modify, stage, or commit unrelated pre-existing changes, including files below `public/docs/` and `AGENT.md`.
@@ -378,17 +379,9 @@ Use this component structure and labels:
     </div>
     <div className="mt-8">
       <p className="mb-3 text-sm text-gray-400">Stack</p>
-      <div className="flex flex-wrap gap-3">
-        {work.skills.map((skill) => (
-          <img
-            key={skill}
-            src={Skills[skill]}
-            alt={skill}
-            className="h-8 w-8 rounded-lg"
-            loading="lazy"
-          />
-        ))}
-      </div>
+      <p className="font-code text-sm leading-relaxed text-gray-300 lg:text-base">
+        {work.skills.join(" • ")}
+      </p>
       <p className="mt-8 font-code text-sm text-pink-400">Open project →</p>
     </div>
   </div>
@@ -403,7 +396,7 @@ Use this component structure and labels:
 </a>
 ```
 
-Import `Skills` and `createProjectHash`; do not render an external source link inside this clickable card.
+Import `createProjectHash`; do not import `Skills` or render an external source link inside this clickable card.
 
 - [ ] **Step 3: Preserve ordered card rendering and reveal animation**
 

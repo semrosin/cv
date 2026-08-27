@@ -22,7 +22,7 @@ Turn the portfolio section of the CV into a small, navigable project showcase wh
 On `lg` screens and wider, cards become one-column, horizontal feature cards. The text block takes the left half and the cover image takes the right half. The text hierarchy is:
 
 1. large project title;
-2. compact `Stack` label and technology icons;
+2. compact `Stack` label and technology names separated by `•`;
 3. short, outcome-oriented description;
 4. a subtle `Open project →` affordance.
 
@@ -30,7 +30,7 @@ Cards retain the zinc background, rounded corners, pink glow, Poppins type, imag
 
 ### Project page
 
-Each page uses a generous two-column hero on desktop: an oversized version of the card's cover image and the same title, stack, and description. A back link returns to the Projects section. Below the hero are a primary `View source code` link and clearly separated feature sections with short, scannable bullets. The layout collapses to one column on mobile and respects the existing black/zinc/pink palette.
+Each page uses a generous two-column hero on desktop: an oversized version of the card's cover image and the same title, stack, and description. The stack may use the existing technology icons on this page only. A back link returns to the Projects section. Below the hero are a primary `View source code` link and clearly separated feature sections with short, scannable bullets. The layout collapses to one column on mobile and respects the existing black/zinc/pink palette.
 
 An unknown project route shows a small not-found state with a link back to the portfolio instead of a blank page.
 
@@ -96,7 +96,7 @@ Landscape images at 1600×900 pixels or larger will crop well in both the deskto
 - `src/data/Works.js`: export an ordered project collection and a lookup-by-slug helper. Each record holds card and detail data.
 - `src/App.jsx`: derive the current view from `window.location.hash`, subscribe to `hashchange`, and choose between the landing page, a project page, and the not-found state.
 - `src/sections/Works.jsx`: maps the ordered collection and keeps its current reveal animation.
-- `src/components/WorkCard.jsx`: becomes an internal link to the project hash route and implements the responsive horizontal/vertical card layout.
+- `src/components/WorkCard.jsx`: becomes an internal link to the project hash route and implements the responsive horizontal/vertical card layout with a text-only, bullet-separated stack.
 - `src/sections/ProjectDetails.jsx`: renders the shared project-page structure from a project record.
 - `src/components/NavBar.jsx`: remains the shared header. On the landing page it keeps the existing section links; on a project page its left side contains only `Home` (linking to `#/`), while the existing social-media controls remain on the right.
 
