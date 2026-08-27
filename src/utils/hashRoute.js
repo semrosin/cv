@@ -13,7 +13,11 @@ export function parseHashRoute(hash = "") {
 
   const projectMatch = route.match(/^\/projects\/([^/]+)$/);
   if (projectMatch) {
-    return { kind: "project", slug: decodeURIComponent(projectMatch[1]) };
+    try {
+      return { kind: "project", slug: decodeURIComponent(projectMatch[1]) };
+    } catch {
+      return { kind: "notFound" };
+    }
   }
 
   return { kind: "notFound" };

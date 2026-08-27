@@ -27,4 +27,5 @@ test("marks unsupported hashes as not found", () => {
   assert.deepEqual(parseHashRoute("#/projects/hwproj/extra"), {
     kind: "notFound",
   });
+  assert.deepEqual(parseHashRoute("#/projects/%"), { kind: "notFound" });
 });
