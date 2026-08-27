@@ -17,7 +17,7 @@
 - Keep public copy in English and use the exact HwProj claims and PR URLs from the specification.
 - Reuse `img/HwProj.png` and `img/name.png`; these files are replaced by the user and must be used for both a card and its detail-page hero.
 - Preserve the existing dark/zinc/pink palette, Poppins/IBM Plex Mono fonts, Motion entrance animation, and responsive behavior.
-- On project cards, render `work.skills` as text separated by ` • `; do not show technology icons there. Existing technology icons may appear only on the project detail page.
+- Store exact public technology labels in `work.stack` and separate optional icon lookup keys in `work.skills`. Render `work.stack` as text separated by ` • ` on cards and detail pages; cards never show technology icons, while detail pages may map `work.skills` to existing icon assets.
 - On project pages, the navbar's left side contains only `Home` (`href="#/"`) and its existing social controls remain on the right.
 - External links opened in a new tab use `target="_blank"` and `rel="noreferrer"`.
 - Do not modify, stage, or commit unrelated pre-existing changes, including files below `public/docs/` and `AGENT.md`.
@@ -169,7 +169,7 @@ git commit -m "feat: add hash route helpers"
 **Interfaces:**
 
 - Consumes `Works` from the existing data module.
-- Produces `Works`, an ordered array of records with `slug`, `title`, `summary`, `skills`, `imageURL`, `imageAlt`, `source`, and `features`.
+- Produces `Works`, an ordered array of records with `slug`, `title`, `summary`, public `stack` labels, icon-only `skills` lookup keys, `imageURL`, `imageAlt`, `source`, and `features`.
 - Produces `getWorkBySlug(slug)`, which returns a record or `undefined`.
 - Later consumers: `Works.jsx`, `WorkCard.jsx`, `ProjectDetails.jsx`, and `App.jsx`.
 
@@ -189,15 +189,51 @@ test("lists HwProj first and the personal CV second", () => {
   );
 });
 
+test("uses the approved public stack labels", () => {
+  assert.deepEqual(getWorkBySlug("hwproj").stack, [
+    "C#",
+    "ASP.NET Core",
+    "EF Core",
+    "React",
+    "TypeScript",
+    "Material UI",
+    "Vite",
+  ]);
+  assert.deepEqual(getWorkBySlug("cv").stack, [
+    "JavaScript",
+    "React",
+    "Tailwind CSS",
+    "Vite",
+    "Motion",
+  ]);
+});
+
 test("exposes complete HwProj evidence", () => {
   const hwproj = getWorkBySlug("hwproj");
 
   assert.equal(hwproj.source.url, "https://github.com/InteIIigeNET/HwProj-2.0.1");
   assert.equal(hwproj.features.length, 3);
   assert.deepEqual(
-    hwproj.features.flatMap((feature) => feature.links.map((link) => link.label)),
-    ["PR #636", "PR #663", "PR #667"]
+    hwproj.features.flatMap((feature) => feature.links),
+    [
+      {
+        label: "PR #636",
+        url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636",
+      },
+      {
+        label: "PR #663",
+        url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/663",
+      },
+      {
+        label: "PR #667",
+        url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/667",
+      },
+    ]
   );
+});
+
+test("returns undefined for an unknown project slug", () => {
+  assert.equal(getWorkBySlug("missing"), undefined);
 });
 
 test("gives every portfolio entry its own source link and cover", () => {
@@ -226,6 +262,15 @@ export const Works = [
     title: "HwProj",
     summary:
       "Full-stack feature development for a microservice-based homework platform: secure submission files, group-targeted assignments, and a smoother local development workflow.",
+    stack: [
+      "C#",
+      "ASP.NET Core",
+      "EF Core",
+      "React",
+      "TypeScript",
+      "Material UI",
+      "Vite",
+    ],
     skills: ["TypeScript", "React", "MaterialUI", "CSharp", "NetCore", "Vite"],
     imageURL: "img/HwProj.png",
     imageAlt: "HwProj homework-management interface",
@@ -279,6 +324,7 @@ export const Works = [
     title: "Personal CV",
     summary:
       "A responsive React CV website that turns a traditional document into an interactive portfolio and a direct contact point.",
+    stack: ["JavaScript", "React", "Tailwind CSS", "Vite", "Motion"],
     skills: ["JavaScript", "React", "Tailwind", "Vite"],
     imageURL: "img/name.png",
     imageAlt: "Personal CV website cover",
@@ -321,13 +367,13 @@ export function getWorkBySlug(slug) {
 
 Run: `node --test test/works.test.js`
 
-Expected: all three data-contract tests pass.
+Expected: all five data-contract tests pass.
 
 - [ ] **Step 5: Run all tests together**
 
 Run: `npm test`
 
-Expected: seven passing tests: four route tests and three portfolio-data tests.
+Expected: nine passing tests: four route tests and five portfolio-data tests.
 
 - [ ] **Step 6: Commit the data task**
 
@@ -355,11 +401,11 @@ git commit -m "feat: add detailed project content"
 
 Run: `npm test`
 
-Expected: seven passing tests. These data and route contracts must remain green while JSX presentation is added.
+Expected: nine passing tests. These data and route contracts must remain green while JSX presentation is added.
 
 - [ ] **Step 2: Convert `WorkCard` into an internal, responsive project link**
 
-Replace the external `work.url` anchor in `src/components/WorkCard.jsx` with an anchor built from `createProjectHash(work.slug)`. Keep text first in the DOM, use `flex-col-reverse lg:flex-row` so mobile shows the cover first, and give the desktop text and image containers `lg:w-1/2`.
+Replace the external `work.url` anchor in `src/components/WorkCard.jsx` with an anchor built from `createProjectHash(work.slug)`. Keep text first in the DOM, use `flex-col-reverse lg:flex-row` so mobile shows the cover first, give the desktop text and image containers `lg:w-1/2`, and give the card root `w-full basis-full` to guarantee one card per row.
 
 Use this component structure and labels:
 
@@ -367,7 +413,7 @@ Use this component structure and labels:
 <a
   href={createProjectHash(work.slug)}
   title={`Open ${work.title}`}
-  className="group flex flex-col-reverse overflow-hidden rounded-2xl bg-zinc-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_0_18px_var(--color-pink-400)] lg:min-h-105 lg:flex-row"
+  className="group flex w-full basis-full flex-col-reverse overflow-hidden rounded-2xl bg-zinc-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_0_18px_var(--color-pink-400)] lg:min-h-105 lg:flex-row"
 >
   <div className="flex w-full flex-col justify-between p-6 lg:w-1/2 lg:p-10">
     <div>
@@ -380,7 +426,7 @@ Use this component structure and labels:
     <div className="mt-8">
       <p className="mb-3 text-sm text-gray-400">Stack</p>
       <p className="font-code text-sm leading-relaxed text-gray-300 lg:text-base">
-        {work.skills.join(" • ")}
+        {work.stack.join(" • ")}
       </p>
       <p className="mt-8 font-code text-sm text-pink-400">Open project →</p>
     </div>
@@ -389,6 +435,7 @@ Use this component structure and labels:
     <img
       src={work.imageURL}
       alt={work.imageAlt}
+      loading="lazy"
       className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:h-full"
     />
     <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-zinc-900/70 via-transparent to-transparent lg:bg-linear-to-l" />
@@ -417,7 +464,10 @@ Create `src/sections/ProjectDetails.jsx`. It must render:
         <p className="font-code text-sm text-pink-400">Selected project</p>
         <h1 className="mt-3 text-4xl font-bold lg:text-6xl">{work.title}</h1>
         <p className="mt-6 text-lg leading-relaxed text-gray-300">{work.summary}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
+        <p className="mt-8 font-code text-sm leading-relaxed text-gray-300 lg:text-base">
+          {work.stack.join(" • ")}
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
           {work.skills.map((skill) => (
             <img
               key={skill}
@@ -481,7 +531,7 @@ For each feature, render `feature.title` as a heading, every `feature.points` en
 
 Run: `npm test && npm run lint && npm run build`
 
-Expected: all seven tests pass, ESLint exits with code 0, and Vite emits `dist/` successfully.
+Expected: all nine tests pass, ESLint exits with code 0, and Vite emits `dist/` successfully.
 
 - [ ] **Step 6: Commit the presentation task**
 
@@ -583,7 +633,7 @@ Leave the right-side `<SocialMedia ... />` block unchanged.
 
 Run: `npm test && npm run lint && npm run build`
 
-Expected: seven tests pass, lint exits with code 0, and Vite completes a production build.
+Expected: nine tests pass, lint exits with code 0, and Vite completes a production build.
 
 - [ ] **Step 5: Commit the routing and navbar task**
 
@@ -635,7 +685,7 @@ If the required in-app browser runtime is unavailable, record that limitation an
 
 Run: `npm test && npm run lint && npm run build`
 
-Expected: seven tests pass, ESLint exits with code 0, and Vite writes a production build with no errors.
+Expected: nine tests pass, ESLint exits with code 0, and Vite writes a production build with no errors.
 
 - [ ] **Step 4: Request independent code review**
 

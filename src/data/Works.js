@@ -4,6 +4,15 @@ export const Works = [
     title: "HwProj",
     summary:
       "Full-stack feature development for a microservice-based homework platform: secure submission files, group-targeted assignments, and a smoother local development workflow.",
+    stack: [
+      "C#",
+      "ASP.NET Core",
+      "EF Core",
+      "React",
+      "TypeScript",
+      "Material UI",
+      "Vite",
+    ],
     skills: ["TypeScript", "React", "MaterialUI", "CSharp", "NetCore", "Vite"],
     imageURL: "img/HwProj.png",
     imageAlt: "HwProj homework-management interface",
@@ -57,6 +66,7 @@ export const Works = [
     title: "Personal CV",
     summary:
       "A responsive React CV website that turns a traditional document into an interactive portfolio and a direct contact point.",
+    stack: ["JavaScript", "React", "Tailwind CSS", "Vite", "Motion"],
     skills: ["JavaScript", "React", "Tailwind", "Vite"],
     imageURL: "img/name.png",
     imageAlt: "Personal CV website cover",

@@ -12,7 +12,10 @@ export default function ProjectDetails({ work }) {
             <p className="font-code text-sm text-pink-400">Selected project</p>
             <h1 className="mt-3 text-4xl font-bold lg:text-6xl">{work.title}</h1>
             <p className="mt-6 text-lg leading-relaxed text-gray-300">{work.summary}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <p className="mt-8 font-code text-sm leading-relaxed text-gray-300 lg:text-base">
+              {work.stack.join(" • ")}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
               {work.skills.map((skill) => (
                 <img
                   key={skill}
