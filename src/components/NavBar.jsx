@@ -1,22 +1,33 @@
 import SocialMedia from "./SocialMedia.jsx";
 
-const NavBar = ({ sections }) => {
+const NavBar = ({ sections, projectPage = false }) => {
   return (
     <header
       className="flex flex-row w-full bg-black gap-3 shadow-[0_-12px_100px_28px_black] z-1000"
       id="Navbar"
     >
       <ul className="flex flex-row justify-start items-center w-full py-5 font-sans text-base sm:text-lg xl:text-2xl">
-        {Object.entries(sections).map(([name, ref]) => (
-          <li key={name} className="ml-4 md:ml-5">
+        {projectPage ? (
+          <li className="ml-4 md:ml-5">
             <a
-              href={ref}
-              className="font-medium md:font-bold hover:text-pink-400 transition-all duration-150 ease-in-out"
+              href="#/"
+              className="font-medium transition-all duration-150 ease-in-out hover:text-pink-400 md:font-bold"
             >
-              {name}
+              Home
             </a>
           </li>
-        ))}
+        ) : (
+          Object.entries(sections).map(([name, ref]) => (
+            <li key={name} className="ml-4 md:ml-5">
+              <a
+                href={ref}
+                className="font-medium transition-all duration-150 ease-in-out hover:text-pink-400 md:font-bold"
+              >
+                {name}
+              </a>
+            </li>
+          ))
+        )}
       </ul>
       <div className="flex">
         <SocialMedia className="self-center pr-2 sm:pr-4 2xl:pr-5 items-center" />
