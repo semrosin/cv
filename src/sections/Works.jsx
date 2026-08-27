@@ -17,11 +17,10 @@ export default function WorksSection({ id = "Works" }) {
     }),
   };
   return (
-    <section id={id} className="min-h-screen">
+    <section id={id} className="min-h-screen px-[8vw]">
+      <ScrollSkills className="mb-[2em] mt-[4.5em]" />
 
-      <ScrollSkills className="mb-[2em] mt-[4.5em]"/>
-
-      <div className="flex flex-wrap justify-center mt-20 md:mt-45 mb-45 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
+      <div className="flex flex-wrap justify-center mt-20 md:mt-45 mb-30 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
         Check out
         <a href={MediaUrls.GitHub} target="_blank" title="GitHub">
           <pre className="inline-flex text-5xl text-pink-400 font-sans leading-[1.2]">

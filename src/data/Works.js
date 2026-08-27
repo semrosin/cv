@@ -3,23 +3,11 @@ export const Works = [
     slug: "hwproj",
     title: "HwProj",
     summary:
-      "Full-stack feature development for a microservice-based homework platform: secure submission files, group-targeted assignments, and a smoother local development workflow.",
-    stack: [
-      "C#",
-      "ASP.NET Core",
-      "EF Core",
-      "React",
-      "TypeScript",
-      "Material UI",
-      "Vite",
-    ],
+      "Full-stack feature development for a microservice-based homework platform.",
+    stack: ["C#", "ASP.NET Core", "React", "TypeScript", "Material UI", "Vite"],
     skills: ["TypeScript", "React", "MaterialUI", "CSharp", "NetCore", "Vite"],
     imageURL: "img/HwProj.png",
     imageAlt: "HwProj homework-management interface",
-    source: {
-      label: "View source code",
-      url: "https://github.com/InteIIigeNET/HwProj-2.0.1",
-    },
     features: [
       {
         title: "Secure file submissions",
@@ -64,14 +52,12 @@ export const Works = [
   {
     slug: "cv",
     title: "Personal CV",
-    summary:
-      "A responsive React CV website that turns a traditional document into an interactive portfolio and a direct contact point.",
+    summary: "A responsive CV website with a direct contact point.",
     stack: ["JavaScript", "React", "Tailwind CSS", "Vite", "Motion"],
-    skills: ["JavaScript", "React", "Tailwind", "Vite"],
     imageURL: "img/name.png",
     imageAlt: "Personal CV website cover",
     source: {
-      label: "View source code",
+      label: "View code",
       url: "https://github.com/semrosin/cv",
     },
     features: [
