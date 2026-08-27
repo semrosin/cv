@@ -2,7 +2,7 @@ import ScrollSkills from "../components/ScrollSkills.jsx";
 import { MWorkCard } from "../components/WorkCard.jsx";
 import { Works } from "../data/Works.js";
 import { MediaUrls } from "../data/MediaUrls.js";
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 
 export default function WorksSection({ id = "Works" }) {
   const cardAnimation = {
@@ -29,13 +29,13 @@ export default function WorksSection({ id = "Works" }) {
           </pre>
         </a>
       </div>
-      <motion.div
+      <Motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ amount: 0.05, once: true }}
         className="flex flex-wrap content-between justify-center lg:justify-start gap-5 mb-35 lg:mx-[8vw]"
       >
-        {Object.values(Works).map((work, index) => (
+        {Works.map((work, index) => (
           <MWorkCard
             custom={index}
             variants={cardAnimation}
@@ -43,7 +43,7 @@ export default function WorksSection({ id = "Works" }) {
             work={work}
           />
         ))}
-      </motion.div>
+      </Motion.div>
     </section>
   );
 }
