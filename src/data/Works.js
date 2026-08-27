@@ -1,23 +1,95 @@
-class Work {
-  constructor(title, url, skills, imageURL) {
-    ((this.title = title),
-      (this.url = url),
-      (this.skills = skills),
-      (this.imageURL = imageURL));
-  }
-}
+export const Works = [
+  {
+    slug: "hwproj",
+    title: "HwProj",
+    summary:
+      "Full-stack feature development for a microservice-based homework platform: secure submission files, group-targeted assignments, and a smoother local development workflow.",
+    skills: ["TypeScript", "React", "MaterialUI", "CSharp", "NetCore", "Vite"],
+    imageURL: "img/HwProj.png",
+    imageAlt: "HwProj homework-management interface",
+    source: {
+      label: "View source code",
+      url: "https://github.com/InteIIigeNET/HwProj-2.0.1",
+    },
+    features: [
+      {
+        title: "Secure file submissions",
+        points: [
+          "Built the UI for attaching files to student submissions and displaying them after publication; included asynchronous handling and a five-file limit.",
+          "Added upload/download permission checks plus MIME-type and binary-signature validation that blocks executable ELF, EXE, and Mach-O files.",
+        ],
+        links: [
+          {
+            label: "PR #636",
+            url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636",
+          },
+        ],
+      },
+      {
+        title: "Assignments tailored to student groups",
+        points: [
+          "Added group creation and selection to the homework editor so assignments are visible only to the intended students.",
+          "Extended the course visibility model, API/DTOs, service and repository layers, EF Core migrations, and solution statistics UI to reflect group-specific access.",
+        ],
+        links: [
+          {
+            label: "PR #663",
+            url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/663",
+          },
+        ],
+      },
+      {
+        title: "Developer experience",
+        points: [
+          "Added VS Code tasks to start the full system, all backend services, the frontend, or an individual service from one menu.",
+        ],
+        links: [
+          {
+            label: "PR #667",
+            url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/667",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "cv",
+    title: "Personal CV",
+    summary:
+      "A responsive React CV website that turns a traditional document into an interactive portfolio and a direct contact point.",
+    skills: ["JavaScript", "React", "Tailwind", "Vite"],
+    imageURL: "img/name.png",
+    imageAlt: "Personal CV website cover",
+    source: {
+      label: "View source code",
+      url: "https://github.com/semrosin/cv",
+    },
+    features: [
+      {
+        title: "Responsive presentation",
+        points: [
+          "Built a mobile-aware hero, navigation, project showcase, and adaptive layouts.",
+        ],
+        links: [],
+      },
+      {
+        title: "A small amount of personality",
+        points: [
+          "Added typewriter text, animated skill ribbons, subtle Motion transitions, and kitten details.",
+        ],
+        links: [],
+      },
+      {
+        title: "Clear contact paths",
+        points: [
+          "Made the downloadable PDF CV, social links, and the existing mail-service contact form easy to reach.",
+        ],
+        links: [],
+      },
+    ],
+  },
+];
 
-export const Works = {
-  SemesterWorkOne: new Work(
-    "File uploading as student's solutions in HwProj service",
-    "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636",
-    ["TypeScript", "React", "MaterialUI", "CSharp", "NetCore"],
-    "img/HwProj.png"
-  ),
-  CV: new Work(
-    "This CV",
-    "",
-    ["JavaScript", "React", "Tailwind"],
-    "img/name.png"
-  ),
-};
+export function getWorkBySlug(slug) {
+  return Works.find((work) => work.slug === slug);
+}
