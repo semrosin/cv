@@ -1,4 +1,4 @@
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,10pt]{article}
 
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -10,7 +10,6 @@
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
-\usepackage{xcolor}
 \usepackage{soul}
 \definecolor{markeryellow}{RGB}{253,255,200}
 \let\oldhref\href
@@ -39,35 +38,38 @@
 }{}{0em}{}[\titlerule \vspace{-5pt}]
 
 \newcommand{\resumeItem}[1]{
-  \item\small{#1 \vspace{-2pt}}
+  \item\small{#1 \vspace{1pt}}
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \vspace{2pt}\item
+    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-2pt}
 }
 
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+\newcommand{\resumeSubHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}, nosep]
 }
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListStart}{
+  \begin{itemize}[
+    leftmargin=0.22in,
+    itemsep=0pt,
+    topsep=4pt,
+    parsep=0pt,
+    partopsep=0pt
+  ]
+}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
 
 \begin{document}
 
 %----------HEADING----------
 \begin{center}
     \textbf{\Huge \scshape Семён Росин} \\ \vspace{5pt}
-    href{https://t.me/semrosin}{tg: @semrosin} $|$
+    \href{https://t.me/semrosin}{tg: @semrosin} $|$
     \href{https://github.com/semrosin}{github.com/semrosin} $|$
     \href{mailto:semen.rosin1@gmail.com}{semen.rosin1@gmail.com} $|$
     \href{https://semrosin.ru}{semrosin.ru}
@@ -75,9 +77,9 @@
 
 %-----------ABOUT-----------
 \section{О себе}
-\begin{itemize}[leftmargin=0.15in, label={}]
- \small{
-  Я студент 2 курса программной инженерии, фокусируюсь на фронтенд‑разработке. В учебных и pet‑проектах совмещаю разработку с базовым дизайном, стремлюсь делать понятные и удобные интерфейсы. Ищу стажировку, где смогу развивать технические навыки и участвовать в создании реальных продуктов.
+\begin{itemize}[leftmargin=0.15in, label={}, nosep]
+  \item\small{
+    Frontend-разработчик и студент 3 курса программной инженерии с опытом создания веб-интерфейсов на JavaScript, TypeScript и React. Разрабатываю адаптивные интерфейсы, прорабатываю пользовательские сценарии в индивидуальных и командных проектах. Ищу стажировку, где смогу развивать навыки разработки и участвовать в создании продуктовых интерфейсов.
   }
 \end{itemize}
 
@@ -85,63 +87,123 @@
 \section{Образование}
 \resumeSubHeadingListStart
   \resumeSubheading
-    {Санкт-Петербургский Государственный Университет}{2024 -- н.в.}
-    {09.03.04 Программная инженерия, бакалавриат (2 курс)}{Математико-механический факультет}
+    {Санкт-Петербургский государственный университет}
+    {2024 -- н.в.}
+    {09.03.04 Программная инженерия, бакалавриат (3 курс)}
+    {Математико-механический факультет}
 \resumeSubHeadingListEnd
 
-%-----------EXPERIENCE-----------
+%-----------PROJECTS-----------
 \section{Проекты}
 \resumeSubHeadingListStart
 
+   \resumeSubheading
+    {Работа над образовательной платформой HwProj}
+    {октябрь 2025 -- май 2026}
+    {TypeScript, React, MUI, C\#, ASP.NET}
+    {Командный проект}
+    
+      \vspace{3pt}
+    {\small
+      Разрабатывал новые функциональности для образовательной платформы
+      на React, TypeScript и C\#, интегрируя их в существующие клиентские
+      и серверные модули:
+    }
+    \par
+      \begin{enumerate}[
+        leftmargin=0.26in,
+        label=\arabic*.,
+        itemsep=2pt,
+        topsep=2pt,
+        parsep=0pt,
+        partopsep=0pt
+      ]
+        \item \small{
+          \href{https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636}
+          {Механизм загрузки файлов}:
+        }
+        \resumeItemListStart
+          \resumeItem{
+            реализовал возможность прикрепления и отображения
+            файлов в решениях студентов, проверку MIME-типа и лимита файлов
+          }
+          \resumeItem{
+            добавил на C\# проверку прав на загрузку и скачивание,
+            а также глубокую валидацию файлов с блокировкой исполняемых
+            форматов ELF, EXE и Mach-O
+          }
+        \resumeItemListEnd
+
+        \item \small{
+          \href{https://github.com/InteIIigeNET/HwProj-2.0.1/pull/663}
+          {Закрепление домашних работ за группами}:
+        }
+        \resumeItemListStart
+          \resumeItem{
+            разработал интерфейсы создания и выбора групп, передачу
+            выбранной группы через API и фильтрацию доступных заданий
+          }
+          \resumeItemListEnd
+      \end{enumerate}
+
+  \vspace{4pt}
   \resumeSubheading
-    {\href{https://github.com/semrosin/cv}{Сайт-визитка}}{декабрь 2025}
-    {JavaScript, React, Tailwind CSS}{Индивидуальный проект}
+    {\href{https://github.com/semrosin/cv}{Сайт-визитка}}
+    {декабрь 2025}
+    {JavaScript, React, Tailwind CSS}
+    {Индивидуальный проект}
     \resumeItemListStart
-      \resumeItem{Разработка SPA-сайта с адаптивной версткой (mobile-first)}
-      \resumeItem{Реализация форм обратной связи и обработки данных}
-      \resumeItem{Внедрение Yandex метрик с использованием Google Tag Manager}
-      \resumeItem{Настройка CI/CD для автоматической сборки и публикации сайта}
+      \resumeItem{
+        Разработал адаптивный SPA в подходе mobile-first; использовал
+        семантические секции, подписанные поля формы и CSS media queries
+        через Tailwind CSS
+      }
+      \resumeItem{
+        Добавил lazy loading изображений и оптимизировал анимацию списка
+        навыков
+      }
+      \resumeItem{
+        Интегрировал форму обратной связи и Яндекс Метрику через
+        Google Tag Manager; настроил сборку и публикацию сайта
+        в GitHub Actions
+      }
     \resumeItemListEnd
 
+  \vspace{4pt}
   \resumeSubheading
-    {\href{https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636}{Механизм загрузки файлов для образовательной платформы}}{октябрь -- ноябрь 2025}
-    {TypeScript, React, C\#, ASP.NET}{Командный проект}
+    {\href{https://github.com/spbu-coding-2024/graphs-graphs-team-2}
+     {Desktop-приложение для анализа графов}}
+    {март -- май 2025}
+    {Kotlin, Jetpack Compose}
+    {Командный проект}
     \resumeItemListStart
-      \resumeItem{Разработка клиентской части механизма и валидации типов файлов на React + TypeScript}
-      \resumeItem{Разработка механизма валидации файлов в серверной логике на C\#}
-      \resumeItem{Интеграция функциональности в существующую систему платформы}
-      \resumeItem{Работа с API}
-    \resumeItemListEnd
-
-  \resumeSubheading
-    {\href{https://github.com/spbu-coding-2024/graphs-graphs-team-2}{Desktop-приложение для анализа графов}}{март -- май 2025}
-    {Kotlin, Jetpack Compose}{Командный проект}
-    \resumeItemListStart
-      \resumeItem{Участие в проектировании архитектуры}
-      \resumeItem{Реализация UI на Jetpack Compose}
+      \resumeItem{
+        Участвовал в проектировании архитектуры приложения
+        для визуализации и анализа графов
+      }
+      \resumeItem{
+        Реализовал пользовательский интерфейс на Jetpack Compose
+        в рамках командной разработки
+      }
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
 %-----------TECHNICAL SKILLS-----------
 \section{Технические навыки}
-\begin{itemize}[leftmargin=0.15in, label={}]
- \small{
-  \item{
-   \textbf{Языки:} JavaScript, TypeScript, HTML, CSS, C\#, Kotlin, C \\
-   \textbf{Фреймворки и библиотеки:} React, Tailwind CSS, Jetpack Compose, MUI \\
-   \textbf{Инструменты:} Git, GitHub, ESLint, Prettier, SQLite, REST API  \\
-  }
- }
-\end{itemize}
+\begin{itemize}[leftmargin=0.15in, label={}, nosep]
+  \small{
+    \item{
+      \textbf{Языки:}
+      JavaScript, TypeScript, HTML, CSS, C\#, Kotlin, C \\
 
-%-----------SOFT SKILLS-----------
-\section{Soft Skills}
-\begin{itemize}
-    
-    \item Командная разработка ПО в небольших группах
-    \item Обсуждение идей и архитектурных решений на этапе проектирования
-    \item Генерация креативных IT-идей и их проработка в команде
+      \textbf{Фреймворки и библиотеки:}
+      React, Tailwind CSS, MUI, ASP.NET, Jetpack Compose \\
+
+      \textbf{Инструменты и технологии:}
+      Git, GitHub, ESLint, Prettier, SQLite, REST API, CI/CD
+    }
+  }
 \end{itemize}
 
 \end{document}
