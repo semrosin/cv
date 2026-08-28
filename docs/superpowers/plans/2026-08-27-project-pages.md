@@ -6,7 +6,7 @@
 
 **Architecture:** A small dependency-free hash-route parser keeps `#/projects/<slug>` links compatible with static GitHub Pages. `App` observes the hash and selects the landing page, a data-driven project detail view, or an unknown-project state. `Works.js` becomes the single source of truth for ordered project content, while `WorkCard` and `ProjectDetails` only render that data.
 
-**Tech Stack:** React 19, JavaScript/JSX, Vite 7, Tailwind CSS 4, Motion, Node.js 22 built-in test runner.
+**Tech Stack:** React 19, JavaScript/JSX, Vite 7, Tailwind CSS 4, Motion, Node.js 22.
 
 **Spec:** `docs/superpowers/specs/2026-08-27-project-pages-design.md`
 
@@ -21,7 +21,7 @@
 - On project pages, the navbar's left side contains only `Home` (`href="#/"`) and its existing social controls remain on the right.
 - External links opened in a new tab use `target="_blank"` and `rel="noreferrer"`.
 - Do not modify, stage, or commit unrelated pre-existing changes, including files below `public/docs/` and `AGENT.md`.
-- Use npm as the package manager. Run `npm test`, `npm run lint`, and `npm run build` after code changes.
+- Use npm as the package manager. Run `npm run lint` and `npm run build` after code changes.
 
 ---
 
@@ -30,23 +30,18 @@
 | File | Responsibility |
 | --- | --- |
 | `src/utils/hashRoute.js` | Parse supported location hashes and build an internal project hash URL. |
-| `test/hashRoute.test.js` | Regression tests for home, legacy section, project, and invalid hashes. |
 | `src/data/Works.js` | Ordered, complete content model for cards and project detail pages. |
-| `test/works.test.js` | Data-contract tests for project order, source links, and feature groups. |
 | `src/components/WorkCard.jsx` | Accessible internal project link and responsive horizontal card presentation. |
 | `src/sections/Works.jsx` | Maps ordered project data into animated cards. |
 | `src/sections/ProjectDetails.jsx` | Shared, data-driven project hero, source link, and detailed feature sections. |
 | `src/components/NavBar.jsx` | Selects landing-page section links or the project-page-only Home link while preserving social controls. |
 | `src/App.jsx` | Observes hash changes, restores legacy section navigation, and selects the active page. |
-| `package.json` | Adds the Node test command only. |
 
 ### Task 1: Hash-route contract
 
 **Files:**
 
-- Create: `test/hashRoute.test.js`
 - Create: `src/utils/hashRoute.js`
-- Modify: `package.json`
 
 **Interfaces:**
 
@@ -58,50 +53,7 @@
 - Produces `createProjectHash(slug)`, which returns `#/projects/<encoded slug>`.
 - Later consumers: `WorkCard.jsx` calls `createProjectHash`; `App.jsx` calls `parseHashRoute`.
 
-- [ ] **Step 1: Write the failing route tests**
-
-Create `test/hashRoute.test.js` with this exact test surface:
-
-```js
-import assert from "node:assert/strict";
-import test from "node:test";
-import { createProjectHash, parseHashRoute } from "../src/utils/hashRoute.js";
-
-test("parses the home hash", () => {
-  assert.deepEqual(parseHashRoute("#/"), { kind: "home", section: null });
-  assert.deepEqual(parseHashRoute(""), { kind: "home", section: null });
-});
-
-test("keeps the existing landing-page anchors working", () => {
-  assert.deepEqual(parseHashRoute("#Works"), {
-    kind: "home",
-    section: "Works",
-  });
-});
-
-test("parses a project hash and encodes project links", () => {
-  assert.deepEqual(parseHashRoute("#/projects/hwproj"), {
-    kind: "project",
-    slug: "hwproj",
-  });
-  assert.equal(createProjectHash("personal cv"), "#/projects/personal%20cv");
-});
-
-test("marks unsupported hashes as not found", () => {
-  assert.deepEqual(parseHashRoute("#/missing"), { kind: "notFound" });
-  assert.deepEqual(parseHashRoute("#/projects/hwproj/extra"), {
-    kind: "notFound",
-  });
-});
-```
-
-- [ ] **Step 2: Run the test to confirm it fails before implementation**
-
-Run: `node --test test/hashRoute.test.js`
-
-Expected: the run fails with `ERR_MODULE_NOT_FOUND` because `src/utils/hashRoute.js` does not exist yet.
-
-- [ ] **Step 3: Implement the pure route helpers**
+- [ ] **Step 1: Implement the pure route helpers**
 
 Create `src/utils/hashRoute.js`:
 
@@ -132,30 +84,10 @@ export function createProjectHash(slug) {
 }
 ```
 
-- [ ] **Step 4: Run the focused test to confirm the contract passes**
-
-Run: `node --test test/hashRoute.test.js`
-
-Expected: four passing subtests and no failures.
-
-- [ ] **Step 5: Add the repository-level test command**
-
-Add this script to `package.json` without changing dependency versions:
-
-```json
-"test": "node --test"
-```
-
-- [ ] **Step 6: Run the new npm command**
-
-Run: `npm test`
-
-Expected: the same four passing route tests.
-
-- [ ] **Step 7: Commit the focused route task**
+- [ ] **Step 2: Commit the focused route task**
 
 ```bash
-git add package.json src/utils/hashRoute.js test/hashRoute.test.js
+git add src/utils/hashRoute.js
 git commit -m "feat: add hash route helpers"
 ```
 
@@ -163,7 +95,6 @@ git commit -m "feat: add hash route helpers"
 
 **Files:**
 
-- Create: `test/works.test.js`
 - Modify: `src/data/Works.js`
 
 **Interfaces:**
@@ -173,85 +104,7 @@ git commit -m "feat: add hash route helpers"
 - Produces `getWorkBySlug(slug)`, which returns a record or `undefined`.
 - Later consumers: `Works.jsx`, `WorkCard.jsx`, `ProjectDetails.jsx`, and `App.jsx`.
 
-- [ ] **Step 1: Write the failing portfolio-data test**
-
-Create `test/works.test.js`:
-
-```js
-import assert from "node:assert/strict";
-import test from "node:test";
-import { Works, getWorkBySlug } from "../src/data/Works.js";
-
-test("lists HwProj first and the personal CV second", () => {
-  assert.deepEqual(
-    Works.map((work) => work.slug),
-    ["hwproj", "cv"]
-  );
-});
-
-test("uses the approved public stack labels", () => {
-  assert.deepEqual(getWorkBySlug("hwproj").stack, [
-    "C#",
-    "ASP.NET Core",
-    "EF Core",
-    "React",
-    "TypeScript",
-    "Material UI",
-    "Vite",
-  ]);
-  assert.deepEqual(getWorkBySlug("cv").stack, [
-    "JavaScript",
-    "React",
-    "Tailwind CSS",
-    "Vite",
-    "Motion",
-  ]);
-});
-
-test("exposes complete HwProj evidence", () => {
-  const hwproj = getWorkBySlug("hwproj");
-
-  assert.equal(hwproj.source.url, "https://github.com/InteIIigeNET/HwProj-2.0.1");
-  assert.equal(hwproj.features.length, 3);
-  assert.deepEqual(
-    hwproj.features.flatMap((feature) => feature.links),
-    [
-      {
-        label: "PR #636",
-        url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636",
-      },
-      {
-        label: "PR #663",
-        url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/663",
-      },
-      {
-        label: "PR #667",
-        url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/667",
-      },
-    ]
-  );
-});
-
-test("returns undefined for an unknown project slug", () => {
-  assert.equal(getWorkBySlug("missing"), undefined);
-});
-
-test("gives every portfolio entry its own source link and cover", () => {
-  for (const work of Works) {
-    assert.match(work.source.url, /^https:\/\//);
-    assert.match(work.imageURL, /^img\//);
-    assert.ok(work.summary.length > 40);
-  }
-});
-```
-
-- [ ] **Step 2: Run the test to confirm it fails before the model change**
-
-Run: `node --test test/works.test.js`
-
-Expected: the import fails because the current module does not export `getWorkBySlug`.
-
-- [ ] **Step 3: Replace the minimal card-only records with the full ordered model**
+- [ ] **Step 1: Replace the minimal card-only records with the full ordered model**
 
 Rewrite `src/data/Works.js` to export this shape and copy the exact approved public text:
 
@@ -363,22 +216,10 @@ export function getWorkBySlug(slug) {
 }
 ```
 
-- [ ] **Step 4: Run the focused data test**
-
-Run: `node --test test/works.test.js`
-
-Expected: all five data-contract tests pass.
-
-- [ ] **Step 5: Run all tests together**
-
-Run: `npm test`
-
-Expected: nine passing tests: four route tests and five portfolio-data tests.
-
-- [ ] **Step 6: Commit the data task**
+- [ ] **Step 2: Commit the data task**
 
 ```bash
-git add src/data/Works.js test/works.test.js
+git add src/data/Works.js
 git commit -m "feat: add detailed project content"
 ```
 
@@ -397,13 +238,7 @@ git commit -m "feat: add detailed project content"
 - Produces `ProjectDetails({ work })`, the shared project-page renderer.
 - Later consumer: `App.jsx` renders `ProjectDetails` for a resolved project route.
 
-- [ ] **Step 1: Run the existing tests as a presentation-change baseline**
-
-Run: `npm test`
-
-Expected: nine passing tests. These data and route contracts must remain green while JSX presentation is added.
-
-- [ ] **Step 2: Convert `WorkCard` into an internal, responsive project link**
+- [ ] **Step 1: Convert `WorkCard` into an internal, responsive project link**
 
 Replace the external `work.url` anchor in `src/components/WorkCard.jsx` with an anchor built from `createProjectHash(work.slug)`. Keep text first in the DOM, use `flex-col-reverse lg:flex-row` so mobile shows the cover first, give the desktop text and image containers `lg:w-1/2`, and give the card root `w-full basis-full` to guarantee one card per row.
 
@@ -445,11 +280,11 @@ Use this component structure and labels:
 
 Import `createProjectHash`; do not import `Skills` or render an external source link inside this clickable card.
 
-- [ ] **Step 3: Preserve ordered card rendering and reveal animation**
+- [ ] **Step 2: Preserve ordered card rendering and reveal animation**
 
 In `src/sections/Works.jsx`, replace `Object.values(Works)` with `Works` so the explicit array order is preserved. Keep `MWorkCard`, `custom`, `variants`, and the current Motion viewport behavior unchanged.
 
-- [ ] **Step 4: Build the shared `ProjectDetails` section**
+- [ ] **Step 3: Build the shared `ProjectDetails` section**
 
 Create `src/sections/ProjectDetails.jsx`. It must render:
 
@@ -527,13 +362,13 @@ Create `src/sections/ProjectDetails.jsx`. It must render:
 
 For each feature, render `feature.title` as a heading, every `feature.points` entry as an `<li>`, and every `feature.links` entry as a visible external anchor with `target="_blank"` and `rel="noreferrer"`. Cards use `bg-zinc-900`, rounded corners, and a pink link treatment so the detailed content belongs to the existing design system.
 
-- [ ] **Step 5: Run static checks after the JSX change**
+- [ ] **Step 4: Run static checks after the JSX change**
 
-Run: `npm test && npm run lint && npm run build`
+Run: `npm run lint && npm run build`
 
-Expected: all nine tests pass, ESLint exits with code 0, and Vite emits `dist/` successfully.
+Expected: ESLint exits with code 0, and Vite emits `dist/` successfully.
 
-- [ ] **Step 6: Commit the presentation task**
+- [ ] **Step 5: Commit the presentation task**
 
 ```bash
 git add src/components/WorkCard.jsx src/sections/Works.jsx src/sections/ProjectDetails.jsx
@@ -553,13 +388,7 @@ git commit -m "feat: add project detail presentation"
 - Passes `projectPage={true}` to `NavBar` only for a valid project or unknown-project view.
 - Preserves `NavBar` social-media rendering on every route.
 
-- [ ] **Step 1: Run route tests before wiring the browser state**
-
-Run: `node --test test/hashRoute.test.js`
-
-Expected: all four route tests pass; this is the behavior that `App` must consume without duplicating parsing logic.
-
-- [ ] **Step 2: Add route state and home-section restoration to `App.jsx`**
+- [ ] **Step 1: Add route state and home-section restoration to `App.jsx`**
 
 Import `useEffect` and `useState` from React, plus `getWorkBySlug`, `parseHashRoute`, and `ProjectDetails`. Keep the existing `sections` object. Use this route-state pattern:
 
@@ -593,7 +422,7 @@ useEffect(() => {
 
 For `{ kind: "project" }`, look up the slug. When found, render `<NavBar sections={sections} projectPage />` followed by `<ProjectDetails work={work} />`. When the slug is unknown or the route is `{ kind: "notFound" }`, render the same project-page navbar and a semantic full-height not-found section with `Project not found` plus `<a href="#Works">Back to projects</a>`. For the home route, retain the current `AboutSection`, `WorksSection`, and `ContactsSection` composition.
 
-- [ ] **Step 3: Give `NavBar` an explicit project-page mode**
+- [ ] **Step 2: Give `NavBar` an explicit project-page mode**
 
 Change the `NavBar` signature to:
 
@@ -629,13 +458,13 @@ Replace the left-side link map with a conditional. The project view must use the
 
 Leave the right-side `<SocialMedia ... />` block unchanged.
 
-- [ ] **Step 4: Run all automated checks**
+- [ ] **Step 3: Run all automated checks**
 
-Run: `npm test && npm run lint && npm run build`
+Run: `npm run lint && npm run build`
 
-Expected: nine tests pass, lint exits with code 0, and Vite completes a production build.
+Expected: lint exits with code 0, and Vite completes a production build.
 
-- [ ] **Step 5: Commit the routing and navbar task**
+- [ ] **Step 4: Commit the routing and navbar task**
 
 ```bash
 git add src/App.jsx src/components/NavBar.jsx
@@ -679,18 +508,18 @@ Check these exact acceptance conditions:
 7. `Home` returns to the landing page; `#About`, `#Works`, and `#Contacts` return to the landing page and scroll to their sections.
 8. An unsupported route such as `#/projects/missing` shows the not-found state and its return link works.
 
-If the required in-app browser runtime is unavailable, record that limitation and perform the automated checks in the next step; do not claim browser-level visual verification.
+If the required in-app browser runtime is unavailable, record that limitation and perform the command-level verification in the next step; do not claim browser-level visual verification.
 
 - [ ] **Step 3: Run the final command-level verification**
 
-Run: `npm test && npm run lint && npm run build`
+Run: `npm run lint && npm run build`
 
-Expected: nine tests pass, ESLint exits with code 0, and Vite writes a production build with no errors.
+Expected: ESLint exits with code 0, and Vite writes a production build with no errors.
 
 - [ ] **Step 4: Request independent code review**
 
-Dispatch a fresh reviewer with the base SHA from immediately before Task 1 and the current HEAD SHA. Supply this requirement set: horizontal desktop cards; responsive mobile cards; two hash-routed project pages; data-driven approved copy; source and PR links; project-only Home navbar with social controls preserved; passing test, lint, and build commands.
+Dispatch a fresh reviewer with the base SHA from immediately before Task 1 and the current HEAD SHA. Supply this requirement set: horizontal desktop cards; responsive mobile cards; two hash-routed project pages; data-driven approved copy; source and PR links; project-only Home navbar with social controls preserved; passing lint and build commands.
 
 - [ ] **Step 5: Resolve reviewer findings before handoff**
 
-Fix every critical or important finding, rerun `npm test && npm run lint && npm run build`, and request a follow-up review if any critical or important issue required a change. Commit each correction with a focused `fix:` message that stages only files changed for that correction.
+Fix every critical or important finding, rerun `npm run lint && npm run build`, and request a follow-up review if any critical or important issue required a change. Commit each correction with a focused `fix:` message that stages only files changed for that correction.

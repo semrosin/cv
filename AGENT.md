@@ -17,6 +17,7 @@ npm run preview
 ```
 
 - Run `npm run lint` and `npm run build` after code changes.
+- Tests are intentionally absent from this project; do not add them.
 - Keep changes compatible with Node.js 22, which is the version used in GitHub Actions.
 - Do not commit generated `dist/` output or `node_modules/`.
 - `bun.lock` is present, but do not update or introduce lockfiles unless the dependency-management change is intentional.

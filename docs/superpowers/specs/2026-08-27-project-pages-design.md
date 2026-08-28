@@ -107,14 +107,8 @@ Landscape images at 1600×900 pixels or larger will crop well in both the deskto
 - Preserve keyboard navigation and visible focus styles inherited from browser defaults/Tailwind utilities.
 - Do not render raw PR text or untrusted external HTML.
 
-## Tests and verification
+## Verification
 
-1. Add a dependency-free Node test for the pure hash-route parser before wiring it into `App`:
-   - home route;
-   - legacy section anchors;
-   - valid project route;
-   - unknown route.
-2. Add an `npm test` script using Node's built-in test runner.
-3. Run `npm test`, `npm run lint`, and `npm run build` after implementation.
-4. Start the Vite app and verify the two project URLs, back navigation, home-section navigation, and responsive card/page behavior. If the in-app browser runtime remains unavailable, report that limitation rather than claiming a visual browser check.
-5. Request an independent code-review subagent before handoff and resolve all critical or important findings.
+1. Run `npm run lint` and `npm run build` after implementation.
+2. Start the Vite app and verify the two project URLs, back navigation, home-section navigation, and responsive card/page behavior. If the in-app browser runtime remains unavailable, report that limitation rather than claiming a visual browser check.
+3. Request an independent code-review subagent before handoff and resolve all critical or important findings.

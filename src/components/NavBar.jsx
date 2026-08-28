@@ -1,6 +1,6 @@
 import SocialMedia from "./SocialMedia.jsx";
 
-const NavBar = ({ sections, projectPage = false }) => {
+const NavBar = ({ sections }) => {
   return (
     <header
       className="flex flex-row w-full bg-black gap-3 shadow-[0_-12px_100px_28px_black] z-1000"
