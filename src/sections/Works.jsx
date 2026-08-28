@@ -32,7 +32,7 @@ export default function WorksSection({ id = "Works" }) {
         initial="hidden"
         whileInView="visible"
         viewport={{ amount: 0.05, once: true }}
-        className="flex flex-wrap content-between justify-center gap-5 mb-35 lg:mx-[8vw]"
+        className="flex flex-wrap content-between justify-center gap-8 mb-35 lg:mx-[8vw]"
       >
         {Works.map((work, index) => (
           <MWorkCard

@@ -4,7 +4,7 @@ function ProjectImageSlot({ visual }) {
   const [hasImage, setHasImage] = useState(false);
 
   return (
-    <figure className="relative aspect-video overflow-hidden rounded-sm">
+    <figure className="relative aspect-video overflow-hidden rounded-md">
       {!hasImage && (
         <figcaption className="absolute inset-0 flex flex-col justify-end bg-linear-to-br from-zinc-900 via-zinc-900 to-pink-950/40 p-6">
           <p className="font-code text-sm text-pink-400">Image slot</p>
@@ -20,7 +20,7 @@ function ProjectImageSlot({ visual }) {
         onLoad={() => setHasImage(true)}
         onError={() => setHasImage(false)}
         aria-hidden={!hasImage}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+        className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-300 ${
           hasImage ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -30,7 +30,7 @@ function ProjectImageSlot({ visual }) {
 
 export default function ProjectDetails({ work }) {
   return (
-    <section className="mb-16 min-h-screen px-[5%] py-12 lg:px-[8vw] lg:py-20">
+    <section className="mb-16 min-h-screen px-[5%] py-12 lg:px-[8vw] lg:py-24">
       <article className="mt-10">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
@@ -38,18 +38,21 @@ export default function ProjectDetails({ work }) {
             <p className="mt-6 font-code font-bold text-lg leading-relaxed text-gray-300 xl:text-xl">
               {work.stack.join(" • ")}
             </p>
-            <p className="mt-8 text-xl leading-relaxed text-gray-300 xl:text-xl">
+            <p className="mt-4 text-xl leading-relaxed text-gray-300 xl:text-xl">
               {work.summary}
             </p>
             {work.source && (
-              <a
-                href={work.source.url}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-10 inline-flex rounded-lg border border-pink-400 px-5 py-2.5 font-medium transition-all hover:bg-pink-400 hover:text-black"
-              >
-                {work.source.label}
-              </a>
+              <div className="my-12 lg:my-16">
+                <a
+                  key={work.source.url}
+                  href={work.source.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-code font-medium text-md md:text-xl text-pink-400 hover:text-pink-300"
+                >
+                  {work.source.label} →
+                </a>
+              </div>
             )}
           </div>
           <div className="overflow-hidden rounded-md md:rounded-xl bg-zinc-900 shadow-[0_0_15px_rgba(244,114,182,0.18)]">
