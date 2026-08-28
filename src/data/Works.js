@@ -6,6 +6,8 @@ export const Works = [
       "Full-stack feature development for a microservice-based homework platform.",
     stack: ["React", "TypeScript", "Material UI", "Vite", "C#", "ASP.NET Core"],
     skills: ["TypeScript", "React", "MaterialUI", "CSharp", "NetCore", "Vite"],
+    cardImageURL: "img/HwProjCard.png",
+    cardImageAlt: "HwProj homework-management interface",
     imageURL: "img/HwProj.png",
     imageAlt: "HwProj homework-management interface",
     features: [
@@ -21,6 +23,10 @@ export const Works = [
             url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636",
           },
         ],
+        visual: {
+          imageURL: "img/HwProj-file-submissions.png",
+          imageAlt: "HwProj student submission with attached files",
+        },
       },
       {
         title: "Assignments tailored to student groups",
@@ -34,6 +40,10 @@ export const Works = [
             url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/663",
           },
         ],
+        visual: {
+          imageURL: "img/HwProj-group-assignment.png",
+          imageAlt: "HwProj homework editor with selected student groups",
+        },
       },
       {
         title: "Developer experience",
@@ -54,7 +64,9 @@ export const Works = [
     title: "Personal CV",
     summary: "A responsive CV website with a direct contact point.",
     stack: ["JavaScript", "React", "Tailwind CSS", "Vite", "Motion"],
-    imageURL: "img/name.png",
+    cardImageURL: "img/CVCard.png",
+    cardImageAlt: "Personal CV website card",
+    imageURL: "img/CV.png",
     imageAlt: "Personal CV website cover",
     source: {
       label: "View code",
@@ -67,6 +79,10 @@ export const Works = [
           "Built a mobile-aware hero, navigation, project showcase, and adaptive layouts.",
         ],
         links: [],
+        visual: {
+          imageURL: "img/PersonalCV-responsive.png",
+          imageAlt: "Personal CV website shown on desktop and mobile",
+        },
       },
       {
         title: "A small amount of personality",
