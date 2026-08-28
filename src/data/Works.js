@@ -4,7 +4,7 @@ export const Works = [
     title: "HwProj",
     summary:
       "Full-stack feature development for a microservice-based homework platform.",
-    stack: ["C#", "ASP.NET Core", "React", "TypeScript", "Material UI", "Vite"],
+    stack: ["React", "TypeScript", "Material UI", "Vite", "C#", "ASP.NET Core"],
     skills: ["TypeScript", "React", "MaterialUI", "CSharp", "NetCore", "Vite"],
     imageURL: "img/HwProj.png",
     imageAlt: "HwProj homework-management interface",
@@ -17,7 +17,7 @@ export const Works = [
         ],
         links: [
           {
-            label: "PR #636",
+            label: "View code",
             url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636",
           },
         ],
@@ -30,7 +30,7 @@ export const Works = [
         ],
         links: [
           {
-            label: "PR #663",
+            label: "View code",
             url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/663",
           },
         ],
@@ -42,7 +42,7 @@ export const Works = [
         ],
         links: [
           {
-            label: "PR #667",
+            label: "View code",
             url: "https://github.com/InteIIigeNET/HwProj-2.0.1/pull/667",
           },
         ],

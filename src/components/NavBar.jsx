@@ -7,27 +7,16 @@ const NavBar = ({ sections, projectPage = false }) => {
       id="Navbar"
     >
       <ul className="flex flex-row justify-start items-center w-full py-5 font-sans text-base sm:text-lg xl:text-2xl">
-        {projectPage ? (
-          <li className="ml-4 md:ml-5">
+        {Object.entries(sections).map(([name, ref]) => (
+          <li key={name} className="ml-4 md:ml-5">
             <a
-              href="#/"
+              href={ref}
               className="font-medium transition-all duration-150 ease-in-out hover:text-pink-400 md:font-bold"
             >
-              Home
+              {name}
             </a>
           </li>
-        ) : (
-          Object.entries(sections).map(([name, ref]) => (
-            <li key={name} className="ml-4 md:ml-5">
-              <a
-                href={ref}
-                className="font-medium transition-all duration-150 ease-in-out hover:text-pink-400 md:font-bold"
-              >
-                {name}
-              </a>
-            </li>
-          ))
-        )}
+        ))}
       </ul>
       <div className="flex">
         <SocialMedia className="self-center pr-2 sm:pr-4 2xl:pr-5 items-center" />

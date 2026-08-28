@@ -1,23 +1,15 @@
 export default function ProjectDetails({ work }) {
   return (
-    <section className="min-h-screen px-[5%] py-12 lg:px-[12%] lg:py-20">
+    <section className="min-h-screen px-[5%] py-12 lg:px-[16%] lg:py-20">
       <article className="mt-10">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
-            <h1 className="mt-3 text-4xl font-bold lg:text-6xl">
-              {work.title}
-              <a
-                href="#Works"
-                className="font-code text-sm text-pink-400 hover:text-pink-300"
-              >
-                ← Back to projects
-              </a>
-            </h1>
-            <p className="mt-6 text-xl leading-relaxed text-gray-300">
-              {work.summary}
-            </p>
-            <p className="mt-8 font-code text-lg leading-relaxed text-gray-300 lg:text-xl">
+            <h1 className="text-4xl font-bold lg:text-6xl">{work.title}</h1>
+            <p className="mt-6 font-code font-medium text-lg leading-relaxed text-gray-300 xl:text-xl">
               {work.stack.join(" • ")}
+            </p>
+            <p className="mt-8 text-xl leading-relaxed text-gray-300 xl:text-xl">
+              {work.summary}
             </p>
             {work.source && (
               <a

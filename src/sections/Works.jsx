@@ -17,7 +17,7 @@ export default function WorksSection({ id = "Works" }) {
     }),
   };
   return (
-    <section id={id} className="min-h-screen px-[8vw]">
+    <section id={id} className="min-h-screen">
       <ScrollSkills className="mb-[2em] mt-[4.5em]" />
 
       <div className="flex flex-wrap justify-center mt-20 md:mt-45 mb-30 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
@@ -32,7 +32,7 @@ export default function WorksSection({ id = "Works" }) {
         initial="hidden"
         whileInView="visible"
         viewport={{ amount: 0.05, once: true }}
-        className="flex flex-wrap content-between justify-center lg:justify-start gap-5 mb-35 lg:mx-[8vw]"
+        className="flex flex-wrap content-between justify-center gap-5 mb-35 lg:mx-[8vw]"
       >
         {Works.map((work, index) => (
           <MWorkCard
