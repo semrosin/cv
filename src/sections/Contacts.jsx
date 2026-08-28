@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 import { MailService } from "../utils/MailService.js";
 import SocialMedia from "../components/SocialMedia.jsx";
 
@@ -39,7 +39,7 @@ const ContactsSection = ({ id = "Contacts" }) => {
   };
 
   return (
-    <motion.section
+    <Motion.section
       id={id}
       className="flex flex-col content-center min-h-screen md:min-h-[80vh] bg-black shadow-[0_-12px_100px_28px_black]"
     >
@@ -128,7 +128,7 @@ const ContactsSection = ({ id = "Contacts" }) => {
           />
         </div>
       </div>
-    </motion.section>
+    </Motion.section>
   );
 };
 

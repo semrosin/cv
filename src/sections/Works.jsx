@@ -2,7 +2,7 @@ import ScrollSkills from "../components/ScrollSkills.jsx";
 import { MWorkCard } from "../components/WorkCard.jsx";
 import { Works } from "../data/Works.js";
 import { MediaUrls } from "../data/MediaUrls.js";
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 
 export default function WorksSection({ id = "Works" }) {
   const cardAnimation = {
@@ -18,10 +18,9 @@ export default function WorksSection({ id = "Works" }) {
   };
   return (
     <section id={id} className="min-h-screen">
+      <ScrollSkills className="mb-[2em] mt-[4.5em]" />
 
-      <ScrollSkills className="mb-[2em] mt-[4.5em]"/>
-
-      <div className="flex flex-wrap justify-center mt-20 md:mt-45 mb-45 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
+      <div className="flex flex-wrap justify-center mt-20 md:mt-45 mb-30 mx-10 text-center text-white text-5xl font-sans leading-[1.2]">
         Check out
         <a href={MediaUrls.GitHub} target="_blank" title="GitHub">
           <pre className="inline-flex text-5xl text-pink-400 font-sans leading-[1.2]">
@@ -29,13 +28,13 @@ export default function WorksSection({ id = "Works" }) {
           </pre>
         </a>
       </div>
-      <motion.div
+      <Motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ amount: 0.05, once: true }}
-        className="flex flex-wrap content-between justify-center lg:justify-start gap-5 mb-35 lg:mx-[8vw]"
+        className="flex flex-wrap content-between justify-center gap-8 mb-35 lg:mx-[8vw]"
       >
-        {Object.values(Works).map((work, index) => (
+        {Works.map((work, index) => (
           <MWorkCard
             custom={index}
             variants={cardAnimation}
@@ -43,7 +42,7 @@ export default function WorksSection({ id = "Works" }) {
             work={work}
           />
         ))}
-      </motion.div>
+      </Motion.div>
     </section>
   );
 }

@@ -11,7 +11,7 @@ const NavBar = ({ sections }) => {
           <li key={name} className="ml-4 md:ml-5">
             <a
               href={ref}
-              className="font-medium md:font-bold hover:text-pink-400 transition-all duration-150 ease-in-out"
+              className="font-medium transition-all duration-150 ease-in-out hover:text-pink-400 md:font-bold"
             >
               {name}
             </a>
