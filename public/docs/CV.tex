@@ -1,7 +1,17 @@
 \documentclass[letterpaper,10pt]{article}
 
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T2A]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else
+  \usepackage{fontspec}
+  \setmainfont{cmunrm.otf}[
+    BoldFont=cmunbx.otf,
+    ItalicFont=cmunti.otf,
+    BoldItalicFont=cmunbi.otf
+  ]
+\fi
 \usepackage[russian]{babel}
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -10,10 +20,12 @@
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
-\usepackage{soul}
 \definecolor{markeryellow}{RGB}{253,255,200}
 \let\oldhref\href
-\renewcommand{\href}[2]{\oldhref{#1}{\sethlcolor{markeryellow}\hl{#2}}}
+\renewcommand{\href}[2]{%
+  \oldhref{#1}{\begingroup\setlength{\fboxsep}{0pt}%
+    \colorbox{markeryellow}{#2}\endgroup}%
+}
 \usepackage{fancyhdr}
 \usepackage{tabularx}
 
@@ -97,54 +109,55 @@
 \section{Проекты}
 \resumeSubHeadingListStart
 
-   \resumeSubheading
+  \resumeSubheading
     {Работа над образовательной платформой HwProj}
     {октябрь 2025 -- май 2026}
     {TypeScript, React, MUI, C\#, ASP.NET}
     {Командный проект}
-    
-      \vspace{3pt}
-    {\small
-      Разрабатывал новые функциональности для образовательной платформы
-      на React, TypeScript и C\#, интегрируя их в существующие клиентские
-      и серверные модули:
-    }
-    \par
-      \begin{enumerate}[
-        leftmargin=0.26in,
-        label=\arabic*.,
-        itemsep=2pt,
-        topsep=2pt,
-        parsep=0pt,
-        partopsep=0pt
-      ]
-        \item \small{
-          \href{https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636}
-          {Механизм загрузки файлов}:
-        }
-        \resumeItemListStart
-          \resumeItem{
-            реализовал возможность прикрепления и отображения
-            файлов в решениях студентов, проверку MIME-типа и лимита файлов
-          }
-          \resumeItem{
-            добавил на C\# проверку прав на загрузку и скачивание,
-            а также глубокую валидацию файлов с блокировкой исполняемых
-            форматов ELF, EXE и Mach-O
-          }
-        \resumeItemListEnd
+    \resumeItemListStart
+      \resumeItem{
+        Реализовал \href{https://github.com/InteIIigeNET/HwProj-2.0.1/pull/636}
+        {загрузку и отображение файлов} в решениях студентов,
+        проверку MIME-типа и лимита файлов
+      }
+      \resumeItem{
+        Добавил на C\# проверку прав на загрузку и скачивание,
+        глубокую валидацию файлов с блокировкой форматов ELF, EXE и Mach-O
+      }
+      \resumeItem{
+        Разработал \href{https://github.com/InteIIigeNET/HwProj-2.0.1/pull/663}
+        {интерфейсы создания и выбора групп}, передачу группы через API
+        и фильтрацию доступных домашних работ
+      }
+    \resumeItemListEnd
 
-        \item \small{
-          \href{https://github.com/InteIIigeNET/HwProj-2.0.1/pull/663}
-          {Закрепление домашних работ за группами}:
-        }
-        \resumeItemListStart
-          \resumeItem{
-            разработал интерфейсы создания и выбора групп, передачу
-            выбранной группы через API и фильтрацию доступных заданий
-          }
-          \resumeItemListEnd
-      \end{enumerate}
+  \vspace{4pt}
+  \resumeSubheading
+    {\href{https://github.com/semrosin/goal-tracker}{GoalCraft --- трекер накоплений}}
+    {2026 -- н.в.}
+    {TypeScript, React, Redux Toolkit, Supabase}
+    {Индивидуальный проект}
+    \resumeItemListStart
+      \resumeItem{
+        Разработал адаптивный интерфейс на русском и английском языках:
+        цели, история операций, расчёт взноса и прогноз срока накопления
+      }
+      \resumeItem{
+        Организовал управление состоянием через Redux Toolkit и навигацию
+        через React Router; выделил общие UI-компоненты и логику расчётов
+      }
+      \resumeItem{
+        Интегрировал Supabase Auth и PostgreSQL; настроил RLS-политики
+        доступа и серверные RPC для изменения целей и операций
+      }
+      \resumeItem{
+        Покрыл логику и интерфейсы тестами на Jest и React Testing Library,
+        добавил E2E-сценарии на Playwright и проверки в CI
+      }
+      \resumeItem{
+        Проект доступен по ссылке: \href{https://goalcraft.ru}{goalcraft.ru}
+      }
+    \resumeItemListEnd
 
   \vspace{4pt}
   \resumeSubheading
@@ -154,13 +167,8 @@
     {Индивидуальный проект}
     \resumeItemListStart
       \resumeItem{
-        Разработал адаптивный SPA в подходе mobile-first; использовал
-        семантические секции, подписанные поля формы и CSS media queries
-        через Tailwind CSS
-      }
-      \resumeItem{
-        Добавил lazy loading изображений и оптимизировал анимацию списка
-        навыков
+        Разработал адаптивный SPA в подходе mobile-first на React и Tailwind CSS;
+        добавил lazy loading изображений и оптимизировал анимацию списка навыков
       }
       \resumeItem{
         Интегрировал форму обратной связи и Яндекс Метрику через
@@ -178,12 +186,8 @@
     {Командный проект}
     \resumeItemListStart
       \resumeItem{
-        Участвовал в проектировании архитектуры приложения
-        для визуализации и анализа графов
-      }
-      \resumeItem{
-        Реализовал пользовательский интерфейс на Jetpack Compose
-        в рамках командной разработки
+        Участвовал в проектировании архитектуры приложения для анализа графов
+        и реализовал пользовательский интерфейс на Jetpack Compose
       }
     \resumeItemListEnd
 
@@ -195,13 +199,16 @@
   \small{
     \item{
       \textbf{Языки:}
-      JavaScript, TypeScript, HTML, CSS, C\#, Kotlin, C \\
+      JavaScript, TypeScript, HTML, CSS, C\#, Kotlin, C, SQL \\
 
       \textbf{Фреймворки и библиотеки:}
-      React, Tailwind CSS, MUI, ASP.NET, Jetpack Compose \\
+      React, Redux Toolkit, React Router, Tailwind CSS, MUI, ASP.NET, Jetpack Compose \\
 
       \textbf{Инструменты и технологии:}
-      Git, GitHub, ESLint, Prettier, SQLite, REST API, CI/CD
+      Git, GitHub, ESLint, Prettier, CSS Modules, Supabase, PostgreSQL, SQLite, REST API, CI/CD \\
+
+      \textbf{Тестирование:}
+      Jest, React Testing Library, Playwright
     }
   }
 \end{itemize}
